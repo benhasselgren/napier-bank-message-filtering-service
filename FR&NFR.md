@@ -16,3 +16,6 @@
 - Three extends.
 
 ## Non-Functional Requirements
+- Two NFR Soft Goals:
+  - **Scalability**
+  - **Response Time**
