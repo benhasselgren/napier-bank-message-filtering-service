@@ -30,7 +30,7 @@ namespace BusinessLayer.classes
         /// Abstract Method <c>processMessage</c> 
         /// Allows classes that implement this method to have unique processing formats
         /// </summary>
-        public abstract void processMessage();
+        public abstract void processMessage(string header, string body);
 
 
     }
