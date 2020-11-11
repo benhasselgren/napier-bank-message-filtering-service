@@ -5,11 +5,11 @@ using System.Text;
 namespace BusinessLayer.classes
 {
     /// <summary>
-    /// Class <c>SmsMessage</c> 
+    /// Class <c>TweetMessage</c> 
     /// Inherits from ProcessedMessage 
-    /// Outlines a SMS message
+    /// Outlines a tweet message
     /// </summary>
-    class SmsMessage : ProcessedMessage
+    class TweetMessage : ProcessedMessage
     {
         // ------------------ Instance Variables ------------------
 
@@ -20,7 +20,7 @@ namespace BusinessLayer.classes
         // ------------------ Methods ------------------
         /// <summary>
         /// Method <c>processMessage</c> 
-        /// Used to create an sms message by processing input
+        /// Used to create an tweet message by processing input
         /// </summary>
         public override void processMessage(string header, string body)
         {
