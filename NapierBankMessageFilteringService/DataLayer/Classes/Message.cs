@@ -4,6 +4,10 @@ using System.Text;
 
 namespace DataLayer.Classes
 {
+    /// <summary>
+    /// Class <c>Message</c> 
+    /// A class that stores unprocessed and processed messages.
+    /// </summary>
     class Message
     {
         // ------------------ Instance Variables ------------------
