@@ -8,7 +8,7 @@ namespace DataLayer.Classes
     /// Class <c>Message</c> 
     /// A class that stores unprocessed and processed messages.
     /// </summary>
-    class Message
+    public class Message
     {
         // ------------------ Instance Variables ------------------
         private string messageType;
