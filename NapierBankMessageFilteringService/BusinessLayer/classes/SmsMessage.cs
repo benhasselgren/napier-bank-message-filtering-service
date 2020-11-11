@@ -4,6 +4,11 @@ using System.Text;
 
 namespace BusinessLayer.classes
 {
+    /// <summary>
+    /// Class <c>SmsMessage</c> 
+    /// Inherits from ProcessedMessage 
+    /// Outlines an SMS message
+    /// </summary>
     class SmsMessage : ProcessedMessage
     {
         // ------------------ Instance Variables ------------------
@@ -15,7 +20,7 @@ namespace BusinessLayer.classes
         // ------------------ Methods ------------------
         /// <summary>
         /// Method <c>processMessage</c> 
-        /// Used to create an sms message by processing 
+        /// Used to create an sms message by processing input
         /// </summary>
         public override void processMessage(string header, string body)
         {
