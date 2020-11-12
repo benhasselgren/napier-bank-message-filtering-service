@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLayer.classes
+namespace BusinessLayer.Classes
 {
     /// <summary>
     /// Class <c>ProcessedMessageFactory</c> 

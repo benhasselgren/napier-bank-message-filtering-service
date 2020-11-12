@@ -6,9 +6,9 @@ namespace DataLayer.Classes
 {
     /// <summary>
     /// Class <c>DataFacade</c> 
-    /// A facade that the business lay can communicate with to create, load and save messages
+    /// A facade that the business layer can communicate with to create, load and save messages
     /// </summary>
-    class DataFacade
+    public class DataFacade
     {
         // ------------------ Instance Variables ------------------
         private FileSingleton file;

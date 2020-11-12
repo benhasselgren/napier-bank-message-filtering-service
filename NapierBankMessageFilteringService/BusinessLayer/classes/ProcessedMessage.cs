@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLayer.classes
+namespace BusinessLayer.Classes
 {
     /// <summary>
     /// Abstract Class <c>ProcessedMessage</c> 
