@@ -8,7 +8,7 @@ namespace BusinessLayer.Classes
     /// Abstract Class <c>ProcessedMessage</c> 
     /// An abstract class that stores the fundamental design of all processed messages
     /// </summary>
-    abstract class ProcessedMessage
+    public abstract class ProcessedMessage
     {
 
         // ------------------ Instance Variables ------------------

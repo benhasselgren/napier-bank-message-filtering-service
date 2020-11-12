@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BusinessLayer;
 
 namespace PresentationLayer
 {
@@ -17,9 +18,17 @@ namespace PresentationLayer
     /// </summary>
     public partial class InputWIndow : Window
     {
+        private MessageBankFacade bankMessages;
+
         public InputWIndow()
         {
             InitializeComponent();
+        }
+
+        public InputWIndow(MessageBankFacade mbf)
+        {
+            InitializeComponent();
+            this.bankMessages = mbf;
         }
     }
 }

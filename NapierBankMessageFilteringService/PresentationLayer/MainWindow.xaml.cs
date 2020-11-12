@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,19 @@ namespace PresentationLayer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MessageBankFacade bankMessages;
         public MainWindow()
         {
             InitializeComponent();
+
+            this.bankMessages = new MessageBankFacade();
+        }
+
+        private void add_messages_Click(object sender, RoutedEventArgs e)
+        {
+            InputWIndow inputWindow = new InputWIndow(bankMessages);
+            inputWindow.Show();
+            this.Close();
         }
     }
 }

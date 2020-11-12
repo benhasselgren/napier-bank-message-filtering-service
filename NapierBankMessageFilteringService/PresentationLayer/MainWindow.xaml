@@ -29,7 +29,7 @@
                 
                 <!-- Input messages -->
                 <Label x:Name="add_messages_title" Content="Add messages" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF7C7C7C"/>
-                <Button x:Name="add_messages" Content="By hand" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F"></Button>
+                <Button x:Name="add_messages" Content="By hand" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F" Click="add_messages_Click"></Button>
                 <Button x:Name="add_messages_file" Content="By file" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F"></Button>
             </StackPanel>
         </DockPanel>

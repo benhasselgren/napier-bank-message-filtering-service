@@ -10,21 +10,22 @@ namespace BusinessLayer
     /// Class <c>MessageBankFacade</c> 
     /// A facade that the presentation layer can communicate with to process messages
     /// </summary>
-    class MessageBankFacade
+    public class MessageBankFacade
     {
 
         public static class abbreviations 
-        { 
-        
+        {
+            public const string rofl = "rofl";
         }
 
         // ------------------ Instance Variables ------------------
-        private List<Hashtag> trendingList;
-        private List<string> mentions;
-        private List<string> sirList;
-        private List<ProcessedMessage> processedMessages;
-        private DataFacade messageData;
-        private ProcessedMessageFactory processedMessageFactory;
+        private List<Hashtag> trendingList = new List<Hashtag>();
+        private List<string> mentions = new List<string>();
+        private List<string> sirList = new List<string>();
+        private List<ProcessedMessage> processedMessages = new List<ProcessedMessage>();
+        private DataFacade messageData = new DataFacade();
+        private ProcessedMessageFactory processedMessageFactory = new ProcessedMessageFactory();
+        //private Abbreviations abbreviations = new Abbreviations();
 
         // ------------------ Constructors ------------------
 
