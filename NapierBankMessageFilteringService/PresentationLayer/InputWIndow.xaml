@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:PresentationLayer"
         mc:Ignorable="d"
         Title="InputWIndow" Height="384" Width="597">
+    
+    <!-- Grid Layout -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,40 +22,57 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+
+        <!-- Left form -->
         <DockPanel Background="#FFEEEEEE" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="2">
             <StackPanel VerticalAlignment="Center">
+                
+                <!-- Header -->
                 <Label x:Name="header_title" Content="Header" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
                 <TextBox x:Name="header_input" Text="" TextWrapping="Wrap" Width="250" Height="50" Margin="0,0,0,5"/>
+                
+                <!-- Body -->
                 <Label x:Name="body_title" Content="Body" HorizontalAlignment="Left"  Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
                 <TextBox x:Name="body_input" Text="" TextWrapping="Wrap" Width="250" Height="100" Margin="0,0,0,5" />
+
+                <!-- Process Button -->
                 <Button x:Name="process_message_btn" Content="Process" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F"></Button>
-                <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Button x:Name="finish_input_btn" Content="Done" Width="60" Height="31" Margin="10,30,15,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#FF00AEFF" Foreground="White"></Button>
+
+                <!-- Save panel -->
+                <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,20,10,0">
+                    <Button x:Name="finish_input_btn" Content="Save messages" Width="100" Height="31" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#FF00AEFF" Foreground="White"></Button>
+                    <Label x:Name="number_processed_title" Content="0 processed" HorizontalAlignment="Right" FontWeight="Bold" Foreground="#FF7C7C7C" FontSize="10"/>
                 </StackPanel>
             </StackPanel>
         </DockPanel>
 
-
-
-        <DockPanel Background="#FFCDCDCD" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Grid.ColumnSpan="2">
+        <!-- Right form -->
+        <DockPanel Background="White" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" Grid.ColumnSpan="2">
             <StackPanel x:Name="ProcessedMessagePanel" VerticalAlignment="Top">
 
+                <!-- Message type  -->
                 <Label x:Name="type_title" Content="Message" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"></Label>
 
+                <!-- ID -->
                 <Label x:Name="id_title" Content="ID" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
                 <TextBox x:Name="id_input" Text="" TextWrapping="Wrap" Width="250"  Margin="0,0,0,0"/>
 
+                <!-- Sender -->
                 <Label x:Name="sender_title" Content="Sender" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
                 <TextBox x:Name="sender_input" Text="" TextWrapping="Wrap" Width="250" Margin="0,0,0,0"/>
 
+                <!-- Subject -->
                 <StackPanel x:Name="email_panel" VerticalAlignment="Top">
                     <Label x:Name="subject_title" Content="Subject" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
                     <TextBox x:Name="subject_input" Text="" TextWrapping="Wrap" Width="250"  Margin="0,0,0,0"/>
                 </StackPanel>
 
+                <!-- Text -->
                 <Label x:Name="text_title" Content="Text" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
                 <TextBox x:Name="text_input" Text="" TextWrapping="Wrap" Width="250" Height="100" Margin="0,0,0,0"/>
-                <Button x:Name="confirm_btn" Content="Confirm" Width="60" Height="31" Margin="10,10,15,10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF4CA83E" Foreground="White"></Button>
+
+                <!-- Add message btn -->
+                <Button x:Name="add_message_btn" Content="Add message" Width="100" Height="31" Margin="10,10,15,10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF4CA83E" Foreground="White"></Button>
             </StackPanel>
         </DockPanel>
     </Grid>
