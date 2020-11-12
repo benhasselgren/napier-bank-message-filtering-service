@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PresentationLayer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="384" Width="597">
+        Title="MainWindow" Height="384" Width="500">
+
+    <!-- Grid Layout -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -21,21 +23,15 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DockPanel Background="#FFEEEEEE" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="2">
+        <!-- Grid Layout -->
+        <DockPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="2">
             <StackPanel VerticalAlignment="Center">
-                <Label x:Name="header_title" Content="Header" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
-                <TextBox x:Name="header_input" Text="" TextWrapping="Wrap" Width="250" Height="50" Margin="0,0,0,5"/>
-                <Label x:Name="body_title" Content="Body" HorizontalAlignment="Left"  Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
-                <TextBox x:Name="body_input" Text="" TextWrapping="Wrap" Width="250" Height="100" Margin="0,0,0,5" />
-                <Button x:Name="add_message_btn" Content="Add Message" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F"></Button>
-
+                
+                <!-- Input messages -->
+                <Label x:Name="add_messages_title" Content="Add messages" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF7C7C7C"/>
+                <Button x:Name="add_messages" Content="By hand" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F"></Button>
+                <Button x:Name="add_messages_file" Content="By file" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F"></Button>
             </StackPanel>
         </DockPanel>
-        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2">
-            <Button x:Name="finish_input_btn" Content="Done" Width="60" Height="31" Margin="10,30,15,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#FF00AEFF" Foreground="White"></Button>
-        </StackPanel>
-        <StackPanel Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2">
-            <Button x:Name="confirm_btn" Content="Confirm" Width="60" Height="31" Margin="10,30,15,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#FF4CA83E" Foreground="White"></Button>
-        </StackPanel>
     </Grid>
 </Window>
