@@ -36,7 +36,7 @@
                 <TextBox x:Name="body_input" Text="" TextWrapping="Wrap" Width="250" Height="100" Margin="0,0,0,5" />
 
                 <!-- Process Button -->
-                <Button x:Name="process_message_btn" Content="Process" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F"></Button>
+                <Button x:Name="process_message_btn" Content="Process" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F" Click="process_message_btn_Click"></Button>
 
                 <!-- Save panel -->
                 <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,20,10,0">

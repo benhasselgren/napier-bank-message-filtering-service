@@ -30,5 +30,20 @@ namespace PresentationLayer
             InitializeComponent();
             this.bankMessages = mbf;
         }
+
+        private void process_message_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string header = header_input.Text;
+            string body = body_input.Text;
+
+            try
+            {
+                bankMessages.processMessage(header, body);
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
     }
 }
