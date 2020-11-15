@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PGKiiWVx8cFGYLFvESwVV1kn3tg4uBE8SXya3/ngukDP3covCmpgJV7UvKpaXzmxcc47PhNVUJDqNNivGGB1Ew==",
+  "dgSpecHash": "qe5m7geHZ6LFxttxA0UhB10HPKGH/L0T5No2fhAbq/qLk1I5oLWoQHYUeSqzIxEA7Xc/bA4wWPKH8CjCjNJp7g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\DataLayer\\DataLayer.csproj",
   "expectedPackageFiles": [],

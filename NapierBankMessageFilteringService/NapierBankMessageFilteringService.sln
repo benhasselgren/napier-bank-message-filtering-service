@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{9A2D917B-E7DF-4344-BB00-2EC0D8FE7577}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{9A2D917B-E7DF-4344-BB00-2EC0D8FE7577}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{07356A9A-1263-439C-BCC6-3ADA95E6420F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{07356A9A-1263-439C-BCC6-3ADA95E6420F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{E4848922-C8D5-4EDA-AD5B-E47F478A70CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{E4848922-C8D5-4EDA-AD5B-E47F478A70CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{8456CCAA-C465-4854-851A-2F8AE2D8775D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E4848922-C8D5-4EDA-AD5B-E47F478A70CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4848922-C8D5-4EDA-AD5B-E47F478A70CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4848922-C8D5-4EDA-AD5B-E47F478A70CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8456CCAA-C465-4854-851A-2F8AE2D8775D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8456CCAA-C465-4854-851A-2F8AE2D8775D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8456CCAA-C465-4854-851A-2F8AE2D8775D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8456CCAA-C465-4854-851A-2F8AE2D8775D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
