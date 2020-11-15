@@ -1,6 +1,7 @@
 ﻿using Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BusinessLayer
@@ -11,18 +12,21 @@ namespace BusinessLayer
     /// </summary>
     public class MessageMetrics : IMessageMetrics
     {
+        // ------------------ Properties ------------------
+        public IList<Hashtag> Hashtags { get; set; }
+        public IList<Mention> Mentions { get; set; }
+        public IList<Sir> Sirs { get; set; }
+        public IList<Url> QuarantineList { get; set; }
+
         // ------------------ Constructor ------------------
         public MessageMetrics()
         {
             Hashtags = new List<Hashtag>();
             Mentions = new List<Mention>();
+            QuarantineList = new List<Url>();
             Sirs = new List<Sir>(); ;
         }
 
-        // ------------------ Properties ------------------
-        public IList<Hashtag> Hashtags { get; set; }
-        public IList<Mention> Mentions { get; set; }
-        public IList<Sir> Sirs { get; set; }
 
         // ------------------ Methods ------------------
         /// <summary>
@@ -31,7 +35,21 @@ namespace BusinessLayer
         /// </summary>
         public void addHashtag(string title)
         {
-            throw new NotImplementedException();
+            var hashtag = Hashtags.FirstOrDefault(hashtag => hashtag.Title == title);
+
+            if(hashtag != null)
+            {
+                //If hashtag already exists then increment hashtag count by 1
+                hashtag.Count++;
+            }
+            else
+            {
+                //Create a new hasthtag, set title, set count to 0 and add to hashtags list
+                Hashtag ht = new Hashtag();
+                ht.Title = title;
+                ht.Count = 0;
+                Hashtags.Add(ht);
+            }
         }
 
         /// <summary>
@@ -40,7 +58,12 @@ namespace BusinessLayer
         /// </summary>
         public void addMention(string mention)
         {
-            throw new NotImplementedException();
+            //Create new mention and set username
+            Mention m = new Mention();
+            m.Username = mention;
+
+            //Add mention to list
+            this.Mentions.Add(m);
         }
 
         /// <summary>
@@ -48,6 +71,15 @@ namespace BusinessLayer
         /// Adds a sir to sirs list
         /// </summary>
         public void addSir(string sortCode, string natureOfIncident)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Method <c>addUrl</c> 
+        /// Adds a sir to sirs list
+        /// </summary>
+        public void addUrl(string address)
         {
             throw new NotImplementedException();
         }
@@ -75,6 +107,15 @@ namespace BusinessLayer
         /// returns a list of sirs
         /// </summary>
         public List<Sir> getSirs()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Method <c>getQuarantineList</c> 
+        /// returns a list of sirs
+        /// </summary>
+        public List<Url> getQuarantineList()
         {
             throw new NotImplementedException();
         }

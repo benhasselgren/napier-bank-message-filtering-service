@@ -47,6 +47,14 @@ namespace BusinessLayer
                     //Add space after word
                     processedText += words[x] + " ";
                 }
+                else if (words[x].StartsWith("#"))
+                {
+                    //If it is a hashtag then add the word to hashtag list
+                    messageMetrics.addHashtag(words[x]);
+
+                    //Add space after word
+                    processedText += words[x] + " ";
+                }
                 else
                 {
                     //Add space after word
