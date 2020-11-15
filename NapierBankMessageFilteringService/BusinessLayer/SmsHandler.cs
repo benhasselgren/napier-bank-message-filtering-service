@@ -25,6 +25,9 @@ namespace BusinessLayer
             //Set sender to first word in array
             message.MessageSender = words[0];
 
+            //Save the processed text in string
+            string processedText = "";
+
             //Loop through all the words starting, on the 2nd word
             for(int x=1; x<words.Length; x++)
             {
@@ -32,11 +35,18 @@ namespace BusinessLayer
                 var abbreviation = abbreviations.FirstOrDefault(abbreviation => abbreviation.Abbrv == words[x]);
 
                 //If it is an abbreviation then update the current word to contain the abbreviation translation
-                if (abbreviation == null)
+                if (abbreviation != null)
                 {
-                    words[x] = String.Format("{0}<{1}>", words[x], abbreviation.Translation);
+                    processedText += String.Format("{0}<{1}> ", words[x], abbreviation.Translation);
+                }
+                else
+                {
+                    processedText += words[x] + " ";
                 }
             }
+
+            //Trim end space off
+            message.MessageText = processedText.Trim();
         }
     }
 }
