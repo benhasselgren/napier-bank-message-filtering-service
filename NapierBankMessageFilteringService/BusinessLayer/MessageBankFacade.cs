@@ -12,8 +12,15 @@ namespace BusinessLayer
     /// </summary>
     public class MessageBankFacade : IMessageBankFacade
     {
+        // ------------------ Instance Variables ------------------
+        public IList<Abbreviation> Abbreviations { get; private set; }
+        public IList<Message> ProcessedMessages { get; private set; }
+        public IMessageMetrics MessageMetrics { get; private set; }
+        public IDataFacade MessageData { get; private set; }
+        public IMessageFactory MessageFactory { get; private set; }
+
         // ------------------ Constructor ------------------
-        public MessageBankFacade( IMessageMetrics messageMetrics, IDataFacade messageData, IMessageFactory messageFactory)
+        public MessageBankFacade(IMessageMetrics messageMetrics, IDataFacade messageData, IMessageFactory messageFactory)
         {
             Abbreviations = new List<Abbreviation>();
             ProcessedMessages = new List<Message>();
@@ -21,13 +28,6 @@ namespace BusinessLayer
             MessageData = messageData;
             MessageFactory = messageFactory;
         }
-
-        // ------------------ Instance Variables ------------------
-        public IList<Abbreviation> Abbreviations { get; private set; }
-        public IList<Message> ProcessedMessages { get; private set; }
-        public IMessageMetrics MessageMetrics { get; private set; }
-        public IDataFacade MessageData { get; private set; }
-        public IMessageFactory MessageFactory { get; private set; }
 
         // ------------------ Methods ------------------
         /// <summary>
@@ -62,7 +62,8 @@ namespace BusinessLayer
         /// </summary>
         public bool verifyMessage(Message message)
         {
-            return false;
+            ProcessedMessages.Add(message);
+            return true;
         }
 
         /// <summary>
