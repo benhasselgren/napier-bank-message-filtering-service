@@ -16,7 +16,7 @@ namespace BusinessLayer
         /// Method <c>createMessage</c> 
         /// Returns a Message
         /// </summary>
-        public Message createMessage(string header, string body, IMessageMetrics messageMetrics)
+        public Message createMessage(string header, string body)
         {
             Message message;
 
@@ -36,7 +36,7 @@ namespace BusinessLayer
                 //Create new message
                 message = new SmsMessage();
                 //Set message type
-                message.MessageType = "EMAIL";
+                message.MessageType = MessageType.Email;
                 //Set messageId to header
                 message.MessageId = header;
                 //Set messageTExt to body
@@ -47,7 +47,7 @@ namespace BusinessLayer
                 //Create new message
                 message = new SmsMessage();
                 //Set message type
-                message.MessageType = "TWEET";
+                message.MessageType = MessageType.Tweet;
                 //Set messageId to header
                 message.MessageId = header;
                 //Set messageTExt to body
@@ -58,39 +58,27 @@ namespace BusinessLayer
                 throw new Exception(String.Format("ERROR: Header starts with: '{0}', Must start with S, E or T", header[0]));
             }
 
-            //Get the correct handler to process the message
-            IHandler handler = getHandler(message);
-
-            //Process the message
-            handler.processMessage(message, messageMetrics);
-
             //Return the message
             return message;
         }
 
         /// <summary>
         /// Method <c>getHandler</c> 
-        /// Returns the correct handler depending on the message type
+        /// Returns the correct handler depending on the message type else throws a message
         /// </summary>
         public IHandler getHandler(Message message)
         {
-            if (message.MessageType.Equals("SMS"))
+            switch (message.MessageType)
             {
-                //Return sms handler if sms
-                SmsHandler handler = new SmsHandler();
-                return handler;
-            }
-            else if (message.MessageType.Equals("EMAIL"))
-            {
-                //Return email handler if email
-                EmailHandler handler = new EmailHandler();
-                return handler;
-            }
-            else
-            {
-                //Return tweet handler if tweet
-                TweetHandler handler = new TweetHandler();
-                return handler;
+                case MessageType.SMS:
+                    //Return sms handler if sms
+                    return new SmsHandler();
+                case MessageType.Email:
+                    return new EmailHandler();
+                case MessageType.Tweet:
+                    return new TweetHandler();
+                default:
+                    throw new Exception("ERROR: Message type is wrong, check your header input");
             }
         }
     }

@@ -45,7 +45,15 @@ namespace BusinessLayer
         /// </summary>
         public Message processMessage(string header, string body)
         {
-            return MessageFactory.createMessage(header, body, MessageMetrics);
+            Message message = MessageFactory.createMessage(header, body);
+
+            //Get the correct handler to process the message
+            IHandler handler = MessageFactory.getHandler(message);
+
+            //Process the message
+            handler.processMessage(message, MessageMetrics, Abbreviations);
+
+            return message;
         }
 
         /// <summary>

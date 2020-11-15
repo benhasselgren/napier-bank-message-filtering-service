@@ -42,7 +42,7 @@ namespace PresentationLayer
             }
             catch(Exception ex)
             {
-
+                header_title.Content = ex.Message;
             }
         }
     }

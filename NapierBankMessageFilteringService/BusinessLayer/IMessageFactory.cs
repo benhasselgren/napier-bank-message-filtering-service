@@ -1,4 +1,5 @@
 ﻿using Models;
+using System.Collections.Generic;
 
 namespace BusinessLayer
 {
@@ -8,7 +9,7 @@ namespace BusinessLayer
     /// </summary>
     public interface IMessageFactory
     {
-        public Message createMessage(string header, string body, IMessageMetrics messageMetrics);
+        public Message createMessage(string header, string body);
         public IHandler getHandler(Message message);
     }
 }

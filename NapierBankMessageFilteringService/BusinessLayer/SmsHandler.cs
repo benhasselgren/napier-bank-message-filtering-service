@@ -1,6 +1,7 @@
 ﻿using Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BusinessLayer
@@ -16,7 +17,7 @@ namespace BusinessLayer
         /// Method <c>processMessage</c> 
         /// Processes an SMS message
         /// </summary>
-        public void processMessage(Message message, IMessageMetrics messageMetrics, List<Abbreviation> abbreviations)
+        public void processMessage(Message message, IMessageMetrics messageMetrics, IList<Abbreviation> abbreviations)
         {
             //Split message text into array of strings by space
             string[] words = message.MessageText.Split(' ');
@@ -27,7 +28,14 @@ namespace BusinessLayer
             //Loop through all the words starting, on the 2nd word
             for(int x=1; x<words.Length; x++)
             {
-                if(messageMetrics.M.Any(s => myString.Contains(s));])
+                //Check if current word is an abbreviation and return the correct abbreviation object if it does
+                var abbreviation = abbreviations.FirstOrDefault(abbreviation => abbreviation.Abbrv == words[x]);
+
+                //If it is an abbreviation then update the current word to contain the abbreviation translation
+                if (abbreviation == null)
+                {
+                    words[x] = String.Format("{0}<{1}>", words[x], abbreviation.Translation);
+                }
             }
         }
     }
