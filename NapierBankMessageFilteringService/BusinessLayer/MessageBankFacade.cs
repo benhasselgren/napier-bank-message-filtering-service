@@ -12,13 +12,22 @@ namespace BusinessLayer
     /// </summary>
     public class MessageBankFacade : IMessageBankFacade
     {
+        // ------------------ Constructor ------------------
+        public MessageBankFacade( IMessageMetrics messageMetrics, IDataFacade messageData, IMessageFactory messageFactory)
+        {
+            Abbreviations = new List<Abbreviation>();
+            ProcessedMessages = new List<Message>();
+            MessageMetrics = messageMetrics;
+            MessageData = messageData;
+            MessageFactory = messageFactory;
+        }
 
         // ------------------ Instance Variables ------------------
-        public IList<Abbreviation> Abbreviations { get; set; }
-        public IList<Message> ProcessedMessages { get; set; }
-        public IMessageMetrics MessageMetrics { get; set; }
-        public IDataFacade MessageData { get; set; }
-        public IMessageFactory MessageFactory { get; set; }
+        public IList<Abbreviation> Abbreviations { get; private set; }
+        public IList<Message> ProcessedMessages { get; private set; }
+        public IMessageMetrics MessageMetrics { get; private set; }
+        public IDataFacade MessageData { get; private set; }
+        public IMessageFactory MessageFactory { get; private set; }
 
         // ------------------ Methods ------------------
         /// <summary>

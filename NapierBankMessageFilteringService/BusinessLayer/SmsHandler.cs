@@ -9,7 +9,7 @@ namespace BusinessLayer
     /// Class <c>SmsHandler</c> 
     /// A handler for sms messages
     /// </summary>
-    class SmsHandler : IHandler
+    public class SmsHandler : IHandler
     {
         // ------------------ Methods ------------------
         /// <summary>

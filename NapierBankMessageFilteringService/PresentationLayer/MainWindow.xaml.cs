@@ -1,4 +1,5 @@
-﻿using BusinessLayer;
+﻿using Autofac;
+using BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,12 +22,17 @@ namespace PresentationLayer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MessageBankFacade bankMessages;
+        private IMessageBankFacade bankMessages;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            this.bankMessages = new MessageBankFacade();
+        public MainWindow(IMessageBankFacade mbf)
+        {
+            this.bankMessages = mbf;
+            InitializeComponent();
         }
 
         private void add_messages_Click(object sender, RoutedEventArgs e)

@@ -205,7 +205,7 @@ namespace PresentationLayer {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PresentationLayer;V1.0.0.0;component/inputwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PresentationLayer;component/inputwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\InputWIndow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

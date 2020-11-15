@@ -9,7 +9,7 @@ namespace BusinessLayer
     /// Class <c>EmailHandler</c> 
     /// A handler for email messages
     /// </summary>
-    class EmailHandler : IHandler
+    public class EmailHandler : IHandler
     {
         // ------------------ Methods ------------------
         /// <summary>

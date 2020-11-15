@@ -18,14 +18,14 @@ namespace PresentationLayer
     /// </summary>
     public partial class InputWIndow : Window
     {
-        private MessageBankFacade bankMessages;
+        private IMessageBankFacade bankMessages;
 
         public InputWIndow()
         {
             InitializeComponent();
         }
 
-        public InputWIndow(MessageBankFacade mbf)
+        public InputWIndow(IMessageBankFacade mbf)
         {
             InitializeComponent();
             this.bankMessages = mbf;

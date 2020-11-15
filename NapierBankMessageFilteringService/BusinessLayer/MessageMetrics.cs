@@ -11,10 +11,18 @@ namespace BusinessLayer
     /// </summary>
     public class MessageMetrics : IMessageMetrics
     {
+        // ------------------ Constructor ------------------
+        public MessageMetrics()
+        {
+            Hashtags = new List<Hashtag>();
+            Mentions = new List<Mention>();
+            Sirs = new List<Sir>(); ;
+        }
+
         // ------------------ Properties ------------------
-        public List<Hashtag> Hashtags { get; set; }
-        public List<Mention> Mentions { get; set; }
-        public List<Sir> Sirs { get; set; }
+        public IList<Hashtag> Hashtags { get; set; }
+        public IList<Mention> Mentions { get; set; }
+        public IList<Sir> Sirs { get; set; }
 
         // ------------------ Methods ------------------
         /// <summary>

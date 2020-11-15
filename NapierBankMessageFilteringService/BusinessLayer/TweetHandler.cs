@@ -9,7 +9,7 @@ namespace BusinessLayer
     /// Class <c>TweetHandler</c> 
     /// A handler for tweet messages
     /// </summary>
-    class TweetHandler : IHandler
+    public class TweetHandler : IHandler
     {
         // ------------------ Methods ------------------
         /// <summary>

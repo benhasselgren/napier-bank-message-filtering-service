@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataLayer.Classes
+namespace DataLayer
 {
     /// <summary>
     /// Class <c>DataFacade</c> 

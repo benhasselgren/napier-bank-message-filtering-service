@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cABcZ5XMOdvJGKpnvpw9zRSHTRal+wx6SKYXm/IxFkRgC/gDprs4PZxmH1m7OgAV/8Pxq7+VaDFRTqVhbfcTwg==",
+  "dgSpecHash": "hu8GMNFPe2q08rcO0vbtAwFfd9cDA9JPZ+0KAYSbm8IUO3spxYz6MxQokkSwcQk4le2q9DWbj4vcr8Bo6Bodsg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\PresentationLayer\\PresentationLayer.csproj",
   "expectedPackageFiles": [

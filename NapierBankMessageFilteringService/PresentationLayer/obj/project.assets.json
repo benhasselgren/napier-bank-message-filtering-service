@@ -127,6 +127,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Autofac >= 6.0.0",
       "BusinessLayer >= 1.0.0",
+      "DataLayer >= 1.0.0",
       "Models >= 1.0.0"
     ]
   },
@@ -158,6 +159,9 @@
           "projectReferences": {
             "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\BusinessLayer\\BusinessLayer.csproj": {
               "projectPath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\BusinessLayer\\BusinessLayer.csproj"
+            },
+            "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\DataLayer\\DataLayer.csproj"
             },
             "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\Models\\Models.csproj": {
               "projectPath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\Models\\Models.csproj"
