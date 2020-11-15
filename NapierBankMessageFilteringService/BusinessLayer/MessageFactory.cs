@@ -28,6 +28,8 @@ namespace BusinessLayer
                 message.MessageType = "SMS";
                 //Set messageId to header
                 message.MessageId = header;
+                //Set messageTExt to body
+                message.MessageText = body;
             }
             else if (header.StartsWith("E"))
             {
@@ -37,6 +39,8 @@ namespace BusinessLayer
                 message.MessageType = "EMAIL";
                 //Set messageId to header
                 message.MessageId = header;
+                //Set messageTExt to body
+                message.MessageText = body;
             }
             else if (header.StartsWith("T"))
             {
@@ -46,6 +50,8 @@ namespace BusinessLayer
                 message.MessageType = "TWEET";
                 //Set messageId to header
                 message.MessageId = header;
+                //Set messageTExt to body
+                message.MessageText = body;
             }
             else
             {
