@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "PresentationLayer/1.0.0": {
         "dependencies": {
-          "BusinessLayer": "1.0.0"
+          "BusinessLayer": "1.0.0",
+          "Models": "1.0.0"
         },
         "runtime": {
           "PresentationLayer.dll": {}
@@ -16,15 +17,24 @@
       },
       "BusinessLayer/1.0.0": {
         "dependencies": {
-          "DataLayer": "1.0.0"
+          "DataLayer": "1.0.0",
+          "Models": "1.0.0"
         },
         "runtime": {
           "BusinessLayer.dll": {}
         }
       },
       "DataLayer/1.0.0": {
+        "dependencies": {
+          "Models": "1.0.0"
+        },
         "runtime": {
           "DataLayer.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "runtime": {
+          "Models.dll": {}
         }
       }
     }
@@ -41,6 +51,11 @@
       "sha512": ""
     },
     "DataLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
