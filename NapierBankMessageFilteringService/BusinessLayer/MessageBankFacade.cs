@@ -45,7 +45,8 @@ namespace BusinessLayer
         /// </summary>
         public Message processMessage(string header, string body)
         {
-            return null;
+            Message message = MessageFactory.createMessage(header, body);
+            return message;
         }
 
         /// <summary>
