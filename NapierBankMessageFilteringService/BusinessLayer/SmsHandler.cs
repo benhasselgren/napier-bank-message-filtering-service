@@ -16,9 +16,19 @@ namespace BusinessLayer
         /// Method <c>processMessage</c> 
         /// Processes an SMS message
         /// </summary>
-        public void processMessage(Message message, IMessageMetrics messageMetrics)
+        public void processMessage(Message message, IMessageMetrics messageMetrics, List<Abbreviation> abbreviations)
         {
-            throw new NotImplementedException();
+            //Split message text into array of strings by space
+            string[] words = message.MessageText.Split(' ');
+
+            //Set sender to first word in array
+            message.MessageSender = words[0];
+
+            //Loop through all the words starting, on the 2nd word
+            for(int x=1; x<words.Length; x++)
+            {
+                if(messageMetrics.M.Any(s => myString.Contains(s));])
+            }
         }
     }
 }

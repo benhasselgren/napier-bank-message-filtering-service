@@ -11,6 +11,6 @@ namespace BusinessLayer
     /// </summary>
     public interface IHandler
     {
-        public void processMessage(Message message, IMessageMetrics messageMetrics);
+        public void processMessage(Message message, IMessageMetrics messageMetrics, List<Abbreviation> abbreviations);
     }
 }
