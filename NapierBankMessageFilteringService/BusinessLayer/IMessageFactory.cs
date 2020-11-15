@@ -8,7 +8,7 @@ namespace BusinessLayer
     /// </summary>
     public interface IMessageFactory
     {
-        public Message createMessage(string header, string body);
+        public Message createMessage(string header, string body, IMessageMetrics messageMetrics);
         public IHandler getHandler(Message message);
     }
 }
