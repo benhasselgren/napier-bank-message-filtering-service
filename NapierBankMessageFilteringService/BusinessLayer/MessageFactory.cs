@@ -68,7 +68,24 @@ namespace BusinessLayer
         /// </summary>
         public IHandler getHandler(Message message)
         {
-            return null;
+            if (message.MessageType.Equals("SMS"))
+            {
+                //Return sms handler if sms
+                SmsHandler handler = new SmsHandler();
+                return handler;
+            }
+            else if (message.MessageType.Equals("EMAIL"))
+            {
+                //Return email handler if email
+                EmailHandler handler = new EmailHandler();
+                return handler;
+            }
+            else
+            {
+                //Return tweet handler if tweet
+                TweetHandler handler = new TweetHandler();
+                return handler;
+            }
         }
     }
 }
