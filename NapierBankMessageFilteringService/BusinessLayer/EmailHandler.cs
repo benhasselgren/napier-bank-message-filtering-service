@@ -31,15 +31,11 @@ namespace BusinessLayer
             var email = emailMessage.MessageText.Substring(0, spaceIndex);
             emailMessage.MessageSender = email;
 
-            //Set the subject of email message
-            var subject = emailMessage.MessageText.Substring(spaceIndex + 1, 20);
-            emailMessage.MessageSubject = subject;
-
-            //Set rest of words to body
-            var body = emailMessage.MessageText.Substring(spaceIndex + 21);
-
             //Save the processed text in string
             string processedText = "";
+
+            //Set the subject of email message
+            var subject = emailMessage.MessageText.Substring(spaceIndex + 1, 12);
 
             string pattern = @"SIR \d\d\/\d\d\/\d\d.*";
             Match m = Regex.Match(subject, pattern);
@@ -47,42 +43,51 @@ namespace BusinessLayer
             if (m.Success)
             {
                 //If email is sir email then process accordingly
-                string[] sirBody = body.Split(new string[] { "\n" }, StringSplitOptions.None);
+                emailMessage.MessageSubject = subject;
+
+                //Set rest of words to body
+                var body = emailMessage.MessageText.Substring(spaceIndex + 14);
+
+                string[] sirBody = body.Split(new string[] { "\r" }, StringSplitOptions.None);
 
                 //Get sortcode and nature of incident and add them to message metrics
-                var matchSortCode = Regex.Match(sirBody[0], "(?<=:).*");
+                var matchSortCode = Regex.Match(sirBody[1], "(?<=:).*");
                 var matchNoi = Regex.Match(sirBody[1], "(?<=:).*");
                 messageMetrics.addSir(matchSortCode.Value.Trim(), matchNoi.Value.Trim());
 
-                //Loop through all the other lines to process
-                for (int x = 1; x < sirBody.Length; x++)
-                {
-                    sirBody[x].Trim();
-                    //Split rest of text by spaces
-                    string[] words = sirBody[x].Split(' ');
+                processedText += sirBody[0] + "\r" + sirBody[1] + "\r";
 
-                    foreach (string word in words)
+                //Split rest of text by spaces
+                string[] words = sirBody[2].Split(' ');
+                
+
+                foreach (string word in words)
+                {
+                    pattern = @"http.?:\\\\www.*";
+                    m = Regex.Match(word, pattern);
+
+                    if (m.Success)
                     {
-                        pattern = @"http.?:\\\\www.*";
-                        m = Regex.Match(word, pattern);
-                        if (m.Success)
-                        {
-                            //If it is a url then add url to quarantine list and replace with url quarantined
-                            processedText += "<URL Quarantined> ";
-                            messageMetrics.addUrl(word);
-                        }
-                        else
-                        {
-                            //Add space after word
-                            processedText += word + " ";
-                        }
+                        //If it is a url then add url to quarantine list and replace with url quarantined
+                        processedText += "<URL Quarantined> ";
+                        messageMetrics.addUrl(word);
+                    }
+                    else
+                    {
+                        //Add space after word
+                        processedText += word + " ";
                     }
                 }
-
             }
             else
             {
                 //If email is se email then process accordingly
+                //Set the subject of email message
+                var seSubject = emailMessage.MessageText.Substring(spaceIndex + 1, 20);
+                emailMessage.MessageSubject = seSubject;
+
+                //Set rest of words to body
+                var body = emailMessage.MessageText.Substring(spaceIndex + 21);
 
                 //Split body into words
                 string[] words = body.Split(' ');
