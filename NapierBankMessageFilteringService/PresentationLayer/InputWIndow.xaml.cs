@@ -129,7 +129,7 @@ namespace PresentationLayer
                 bankMessages.saveMessages(folderPath);
 
                 //Open main window and pass data back
-                MainWindow main = new MainWindow(bankMessages, true);
+                MainWindow main = new MainWindow(bankMessages);
                 main.Show();
                 this.Close();
             }

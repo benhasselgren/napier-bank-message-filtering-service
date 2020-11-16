@@ -115,7 +115,7 @@ namespace BusinessLayer
         /// </summary>
         public IList<Sir> getSirs()
         {
-            throw new NotImplementedException();
+            return Sirs;
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace BusinessLayer
         /// </summary>
         public IList<Url> getQuarantineList()
         {
-            throw new NotImplementedException();
+            return QuarantineList;
         }
     }
 }

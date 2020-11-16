@@ -34,6 +34,8 @@ namespace PresentationLayer
             this.bankMessages = mbf;
             InitializeComponent();
             listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
+            sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
+            listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
         }
 
         private void add_messages_Click(object sender, RoutedEventArgs e)
