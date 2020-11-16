@@ -25,7 +25,7 @@ namespace BusinessLayer
                 //Create new message
                 message = new SmsMessage();
                 //Set message type
-                message.MessageType = "SMS";
+                message.MessageType = MessageType.SMS;
                 //Set messageId to header
                 message.MessageId = header;
                 //Set messageTExt to body

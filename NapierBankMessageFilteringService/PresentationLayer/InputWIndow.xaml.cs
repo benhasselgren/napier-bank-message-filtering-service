@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BusinessLayer;
+using Models;
 
 namespace PresentationLayer
 {
@@ -29,21 +30,58 @@ namespace PresentationLayer
         {
             InitializeComponent();
             this.bankMessages = mbf;
+
+            //Hide processed message panel
+            ProcessedMessagePanel.Visibility = Visibility.Hidden;
+            
         }
 
         private void process_message_btn_Click(object sender, RoutedEventArgs e)
         {
             string header = header_input.Text;
             string body = body_input.Text;
+            Message message = new Message();
 
+            //Try and add a message
             try
             {
-                bankMessages.processMessage(header, body);
+                //Set error message to empty string
+                error_message_title.Content = "";
+                //Call process message method
+                message = bankMessages.processMessage(header, body);
             }
             catch(Exception ex)
             {
-                header_title.Content = ex.Message;
+                //Show error message
+                error_message_title.Content = ex.Message;
             }
+
+            //Show processed message panel but collapse email subject initially
+            ProcessedMessagePanel.Visibility = Visibility.Visible;
+            email_panel.Visibility = Visibility.Collapsed;
+
+            //Display message
+            //Type
+            type_title.Content = message.MessageType;
+            //Id
+            id_input.Text = message.MessageId;
+            //Sender
+            sender_input.Text = message.MessageSender;
+            
+            //Subject if message type is email
+            if (message.MessageType == MessageType.Email)
+            {
+                //Show email panel
+                email_panel.Visibility = Visibility.Visible;
+                
+                //Cast message to email message type
+                EmailMessage emailMessage = (EmailMessage)message;
+
+                subject_input.Text = emailMessage.MessageSubject;
+            }
+
+            //Text
+            text_input.Text = message.MessageText;
         }
     }
 }

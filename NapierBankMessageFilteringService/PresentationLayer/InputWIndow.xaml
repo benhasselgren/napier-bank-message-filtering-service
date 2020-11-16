@@ -73,6 +73,9 @@
 
                 <!-- Add message btn -->
                 <Button x:Name="add_message_btn" Content="Add message" Width="100" Height="31" Margin="10,10,15,10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF4CA83E" Foreground="White"></Button>
+
+                <!-- Error message -->
+                <Label x:Name="error_message_title" HorizontalAlignment="Right" FontWeight="Bold" Foreground="#FFF73232" FontSize="10"/>
             </StackPanel>
         </DockPanel>
     </Grid>
