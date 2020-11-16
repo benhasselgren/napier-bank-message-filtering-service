@@ -11,6 +11,6 @@ namespace DataLayer
     {
         public void loadData(string file);
         public void saveData(List<Message> processedMessages);
-        public void loadAbbreviations(List<Abbreviation> abbreviations);
+        public void loadAbbreviations(IList<Abbreviation> abbreviations);
     }
 }

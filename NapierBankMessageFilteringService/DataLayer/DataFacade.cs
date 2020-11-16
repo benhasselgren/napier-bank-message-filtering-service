@@ -1,6 +1,9 @@
-﻿using Models;
+﻿using Microsoft.VisualBasic.FileIO;
+using Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace DataLayer
@@ -34,9 +37,31 @@ namespace DataLayer
         /// Method <c>saveMessage</c> 
         /// Saves processed messaged to a json file
         /// </summary>
-        public void loadAbbreviations(List<Abbreviation> abbreviations)
+        public void loadAbbreviations(IList<Abbreviation> abbreviations)
         {
+            //Get abbreviations file path
+            string path = @"C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\DataLayer\\Data\\abbreviations.csv";
 
+            using (TextFieldParser parser = new TextFieldParser(path))
+            {
+                parser.TextFieldType = FieldType.Delimited;
+                parser.SetDelimiters(",");
+                while (!parser.EndOfData)
+                {
+                    //Processing row
+                    string[] fields = parser.ReadFields();
+                    foreach (string field in fields)
+                    {
+                        //Create new abbreviation
+                        Abbreviation a = new Abbreviation();
+                        a.Abbrv = fields[0];
+                        a.Translation = fields[1];
+
+                        //Add it to abbreviations list
+                        abbreviations.Add(a);
+                    }
+                }
+            }
         }
     }
 }

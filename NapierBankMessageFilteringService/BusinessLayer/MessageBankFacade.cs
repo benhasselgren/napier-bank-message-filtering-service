@@ -27,6 +27,9 @@ namespace BusinessLayer
             MessageMetrics = messageMetrics;
             MessageData = messageData;
             MessageFactory = messageFactory;
+
+            //Populate abbreviations list
+            messageData.loadAbbreviations(Abbreviations);
         }
 
         // ------------------ Methods ------------------
