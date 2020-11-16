@@ -74,9 +74,10 @@ namespace BusinessLayer
         /// Method <c>saveMessages</c> 
         /// Saves messages to file
         /// </summary>
-        public bool saveMessages()
+        public bool saveMessages(string filepath)
         {
-            return false;
+            MessageData.saveData(ProcessedMessages, filepath);
+            return true;
         }
     }
 }

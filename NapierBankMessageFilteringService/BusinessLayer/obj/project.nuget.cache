@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "LlIgmU68MrZQJZ0xKFSQPtA1NJZvyHt7APCQyncogK1svUnmzA4ZS6RalyRm8mBycLPGXqoEZg6IHQ/HOZTS2Q==",
+  "dgSpecHash": "QK7xnXNZYssgUF9/nqCB47pjkL0A8KVN1tuXPRHGumxamHvQ/qsCyHtj8TiFwk2jUlJwyK/KW5ST9+y8igV09A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\BusinessLayer\\BusinessLayer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\json.net\\1.0.23\\json.net.1.0.23.nupkg.sha512",
+    "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

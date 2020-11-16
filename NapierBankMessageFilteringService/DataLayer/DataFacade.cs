@@ -1,10 +1,13 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 
 namespace DataLayer
 {
@@ -28,9 +31,14 @@ namespace DataLayer
         /// Method <c>createMessage</c> 
         /// Creates a message from user input
         /// </summary>
-        public void saveData(List<Message> processedMessages)
+        public void saveData(IList<Message> processedMessages, string filepath)
         {
+            string json = JsonConvert.SerializeObject(processedMessages.ToArray());
 
+            //write string to file
+            string file = filepath + "\\processed-messages.txt";
+
+            System.IO.File.WriteAllText(@file, json);
         }
 
         /// <summary>

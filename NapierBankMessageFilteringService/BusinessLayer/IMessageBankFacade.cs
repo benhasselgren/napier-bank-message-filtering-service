@@ -12,7 +12,7 @@ namespace BusinessLayer
     {
         public Message processMessage(string header, string body);
         public bool processMessagesByFile(string file);
-        public bool saveMessages();
+        public bool saveMessages(string filepath);
         public bool verifyMessage(Message message);
     }
 }

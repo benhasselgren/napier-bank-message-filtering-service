@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using BusinessLayer;
+using Microsoft.Win32;
 using Models;
 
 namespace PresentationLayer
@@ -115,6 +108,30 @@ namespace PresentationLayer
 
                 //Clear form
                 ProcessedMessagePanel.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void finish_input_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog folderBrowser = new OpenFileDialog();
+            // Set validate names and check file exists to false otherwise windows will
+            // not let you select "Folder Selection."
+            folderBrowser.ValidateNames = false;
+            folderBrowser.CheckFileExists = false;
+            folderBrowser.CheckPathExists = true;
+            // Always default to Folder Selection.
+            folderBrowser.FileName = "Folder Selection.";
+
+            if (folderBrowser.ShowDialog() == true)
+            {
+                //Get the user to choose path
+                string folderPath = Path.GetDirectoryName(folderBrowser.FileName);
+                bankMessages.saveMessages(folderPath);
+
+                //Open main window and pass data back
+                MainWindow main = new MainWindow(bankMessages, true);
+                main.Show();
+                this.Close();
             }
         }
     }

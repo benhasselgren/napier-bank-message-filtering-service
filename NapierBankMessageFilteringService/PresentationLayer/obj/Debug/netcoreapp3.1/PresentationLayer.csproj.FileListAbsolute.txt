@@ -28,3 +28,5 @@ C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\PresentationLayer\bin\Debug\netcoreapp3.1\Autofac.dll
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\PresentationLayer\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\PresentationLayer\obj\Debug\netcoreapp3.1\PresentationLayer.csproj.CoreCompileInputs.cache
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\PresentationLayer\bin\Debug\netcoreapp3.1\Json.Net.dll
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\PresentationLayer\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
