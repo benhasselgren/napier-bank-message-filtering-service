@@ -33,7 +33,7 @@
                 
                 <!-- Body -->
                 <Label x:Name="body_title" Content="Body" HorizontalAlignment="Left"  Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
-                <TextBox x:Name="body_input" Text="" TextWrapping="Wrap" Width="250" Height="100" Margin="0,0,0,5" />
+                <TextBox x:Name="body_input" Text="" Width="250" Height="100" Margin="0,0,0,5" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True"/>
 
                 <!-- Process Button -->
                 <Button x:Name="process_message_btn" Content="Process" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F" Click="process_message_btn_Click"></Button>
@@ -75,7 +75,7 @@
                 <Button x:Name="add_message_btn" Content="Add message" Width="100" Height="31" Margin="10,10,15,10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF4CA83E" Foreground="White"></Button>
 
                 <!-- Error message -->
-                <Label x:Name="error_message_title" HorizontalAlignment="Right" FontWeight="Bold" Foreground="#FFF73232" FontSize="10"/>
+                <TextBlock x:Name="error_message_title" HorizontalAlignment="Right" FontWeight="Bold" Foreground="#FFF73232" FontSize="10" TextWrapping="Wrap"/>
             </StackPanel>
         </DockPanel>
     </Grid>

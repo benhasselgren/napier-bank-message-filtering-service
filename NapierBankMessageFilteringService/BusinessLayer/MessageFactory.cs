@@ -34,7 +34,7 @@ namespace BusinessLayer
             else if (header.StartsWith("E"))
             {
                 //Create new message
-                message = new SmsMessage();
+                message = new EmailMessage();
                 //Set message type
                 message.MessageType = MessageType.Email;
                 //Set messageId to header
@@ -45,7 +45,7 @@ namespace BusinessLayer
             else if (header.StartsWith("T"))
             {
                 //Create new message
-                message = new SmsMessage();
+                message = new TweetMessage();
                 //Set message type
                 message.MessageType = MessageType.Tweet;
                 //Set messageId to header

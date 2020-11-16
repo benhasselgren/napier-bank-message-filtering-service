@@ -46,14 +46,14 @@ namespace PresentationLayer
             try
             {
                 //Set error message to empty string
-                error_message_title.Content = "";
+                error_message_title.Text = "";
                 //Call process message method
                 message = bankMessages.processMessage(header, body);
             }
             catch(Exception ex)
             {
                 //Show error message
-                error_message_title.Content = ex.Message;
+                error_message_title.Text = ex.Message;
             }
 
             //Show processed message panel but collapse email subject initially
