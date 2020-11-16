@@ -41,33 +41,41 @@ namespace BusinessLayer
             //Save the processed text in string
             string processedText = "";
 
-            if (Regex.IsMatch(subject, "SIR\\d\\d/\\d\\d/\\d\\d.*"))
+            string pattern = @"SIR \d\d\/\d\d\/\d\d.*";
+            Match m = Regex.Match(subject, pattern);
+
+            if (m.Success)
             {
                 //If email is sir email then process accordingly
-
-
-                string[] sirBody = body.Split(new string[] { "\\n" }, StringSplitOptions.None);
+                string[] sirBody = body.Split(new string[] { "\n" }, StringSplitOptions.None);
 
                 //Get sortcode and nature of incident and add them to message metrics
                 var matchSortCode = Regex.Match(sirBody[0], "(?<=:).*");
                 var matchNoi = Regex.Match(sirBody[1], "(?<=:).*");
-                messageMetrics.addSir(matchSortCode.Groups[1].Value, matchNoi.Groups[1].Value);
+                messageMetrics.addSir(matchSortCode.Value.Trim(), matchNoi.Value.Trim());
 
-                //Split rest of text by spaces
-                string[] words = sirBody[2].Split(' ');
-
-                foreach (string word in words)
+                //Loop through all the other lines to process
+                for (int x = 1; x < sirBody.Length; x++)
                 {
-                    if (Regex.IsMatch(word, "http.?:\\\\www.*"))
+                    sirBody[x].Trim();
+                    //Split rest of text by spaces
+                    string[] words = sirBody[x].Split(' ');
+
+                    foreach (string word in words)
                     {
-                        //If it is a url then add url to quarantine list and replace with url quarantined
-                        processedText += "<URL Quarantined> ";
-                        messageMetrics.addUrl(word);
-                    }
-                    else
-                    {
-                        //Add space after word
-                        processedText += word + " ";
+                        pattern = @"http.?:\\\\www.*";
+                        m = Regex.Match(word, pattern);
+                        if (m.Success)
+                        {
+                            //If it is a url then add url to quarantine list and replace with url quarantined
+                            processedText += "<URL Quarantined> ";
+                            messageMetrics.addUrl(word);
+                        }
+                        else
+                        {
+                            //Add space after word
+                            processedText += word + " ";
+                        }
                     }
                 }
 
@@ -81,8 +89,8 @@ namespace BusinessLayer
  
                 foreach(string word in words)
                 {
-                    string pattern = @"http.?:\\\\www.*";
-                    Match m = Regex.Match(word, pattern);
+                    pattern = @"http.?:\\\\www.*";
+                    m = Regex.Match(word, pattern);
 
                     if (m.Success)
                     {
