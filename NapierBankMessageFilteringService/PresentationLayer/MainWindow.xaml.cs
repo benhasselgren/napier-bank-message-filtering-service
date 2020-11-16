@@ -35,7 +35,7 @@ namespace PresentationLayer
             InitializeComponent();
             listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
             sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
-            listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
+            trendingList.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
         }
 
         private void add_messages_Click(object sender, RoutedEventArgs e)
@@ -43,6 +43,33 @@ namespace PresentationLayer
             InputWIndow inputWindow = new InputWIndow(bankMessages);
             inputWindow.Show();
             this.Close();
+        }
+
+        private void add_messages_file_Click(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+            // Set filter default file extension 
+            dlg.DefaultExt = ".csv";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Call method
+                bankMessages.processMessagesByFile(dlg.FileName);
+            }
+
+            listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
+            sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
+            trendingList.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
         }
     }
 }

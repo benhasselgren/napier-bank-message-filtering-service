@@ -51,7 +51,7 @@ namespace BusinessLayer
                 string[] sirBody = body.Split(new string[] { "\r" }, StringSplitOptions.None);
 
                 //Get sortcode and nature of incident and add them to message metrics
-                var matchSortCode = Regex.Match(sirBody[1], "(?<=:).*");
+                var matchSortCode = Regex.Match(sirBody[0], "(?<=:).*");
                 var matchNoi = Regex.Match(sirBody[1], "(?<=:).*");
                 messageMetrics.addSir(matchSortCode.Value.Trim(), matchNoi.Value.Trim());
 

@@ -22,9 +22,20 @@ namespace DataLayer
         /// Method <c>loadMessages</c> 
         /// Loads messages from a file
         /// </summary>
-        public void loadData(string file)
+        public List<string> loadData(string file)
         {
+            List<string> data = new List<string>();
 
+            using (StreamReader sr = new StreamReader(@file))
+            {
+                string currentLine;
+                // currentLine will be null when the StreamReader reaches the end of file
+                while ((currentLine = sr.ReadLine()) != null)
+                {
+                    data.Add(currentLine);
+                }
+            }
+            return data;
         }
 
         /// <summary>

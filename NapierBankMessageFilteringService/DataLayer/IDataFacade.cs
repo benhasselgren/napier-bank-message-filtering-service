@@ -9,7 +9,7 @@ namespace DataLayer
     /// </summary>
     public interface IDataFacade
     {
-        public void loadData(string file);
+        public List<string> loadData(string file);
         public void saveData(IList<Message> processedMessages, string filename);
         public void loadAbbreviations(IList<Abbreviation> abbreviations);
     }

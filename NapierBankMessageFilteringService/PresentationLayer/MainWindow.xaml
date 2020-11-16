@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PresentationLayer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="384" Width="500">
+        Title="MainWindow" Height="384" Width="590">
 
     <!-- Grid Layout -->
     <Grid>
@@ -29,39 +29,41 @@
                 <!-- Input messages -->
                 <Label x:Name="add_messages_title" Content="Add messages" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF7C7C7C"/>
                 <Button x:Name="add_messages" Content="By hand" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F" Click="add_messages_Click"></Button>
-                <Button x:Name="add_messages_file" Content="By file" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F"></Button>
+                <Button x:Name="add_messages_file" Content="By file" Width="100" Height="31" Margin="10" Foreground="White" Background="#FF8F8F8F" Click="add_messages_file_Click"></Button>
             </StackPanel>
         </DockPanel>
         <DockPanel Background="#FFEEEEEE" Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="3">
-            <ListView Margin="10" Name="listOfMentions">
+            <ListView Margin="5" Name="listOfMentions" Width="150">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
-                            <TextBlock Text="Username: "/>
                             <TextBlock Text="{Binding Username}"/>
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ListView Margin="10" Name="sirList">
+            <ListView Margin="5" Name="sirList" Width="110">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
                             <TextBlock Text="Sortcode: "/>
                             <TextBlock Text="{Binding SortCode}"/>
+                            <TextBlock Text=", " />
                             <TextBlock Text="Nature of Incident: "/>
                             <TextBlock Text="{Binding NatureOfIncident}"/>
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ListView  Name="trendingList">
+            <ListView  Margin="5" Name="trendingList" Width="150">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
                             <TextBlock Text="{Binding Title}"/>
+                            <TextBlock Text=", " />
                             <TextBlock Text="Used: "/>
                             <TextBlock Text="{Binding Count}"/>
+                            <TextBlock Text=" times" />
                         </WrapPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

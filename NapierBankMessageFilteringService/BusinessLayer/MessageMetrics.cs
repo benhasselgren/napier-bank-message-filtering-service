@@ -47,7 +47,7 @@ namespace BusinessLayer
                 //Create a new hasthtag, set title, set count to 0 and add to hashtags list
                 Hashtag ht = new Hashtag();
                 ht.Title = title;
-                ht.Count = 0;
+                ht.Count = 1;
                 Hashtags.Add(ht);
             }
         }
@@ -97,7 +97,7 @@ namespace BusinessLayer
         /// </summary>
         public IList<Hashtag> getHashtags()
         {
-            throw new NotImplementedException();
+            return Hashtags;
         }
 
         /// <summary>

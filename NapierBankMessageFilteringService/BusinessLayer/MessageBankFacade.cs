@@ -39,7 +39,14 @@ namespace BusinessLayer
         /// </summary>
         public bool processMessagesByFile(string file)
         {
-            return false;
+            List<string> data = MessageData.loadData(file);
+
+            foreach(string line in data)
+            {
+                string[] fields = line.Split(",,");
+                verifyMessage(processMessage(fields[0], fields[1]));
+            }
+            return true;
         }
 
         /// <summary>
