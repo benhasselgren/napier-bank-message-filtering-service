@@ -14,5 +14,6 @@ namespace BusinessLayer
         public bool processMessagesByFile(string file);
         public bool saveMessages(string filepath);
         public bool verifyMessage(Message message);
+        public IMessageMetrics getMessageMetrics();
     }
 }

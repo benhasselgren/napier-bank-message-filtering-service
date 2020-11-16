@@ -79,5 +79,14 @@ namespace BusinessLayer
             MessageData.saveData(ProcessedMessages, filepath);
             return true;
         }
+
+        /// <summary>
+        /// Method <c>getMessageMetrics</c> 
+        /// Returns the message metrics
+        /// </summary>
+        public IMessageMetrics getMessageMetrics()
+        {
+            return MessageMetrics;
+        }
     }
 }

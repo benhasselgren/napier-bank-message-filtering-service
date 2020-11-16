@@ -13,9 +13,9 @@ namespace BusinessLayer
         public void addSir(string sortCode, string natureOfIncident);
         public void addMention(string mention);
         public void addUrl(string address);
-        public List<Sir> getSirs();
-        public List<Mention> getMentions();
-        public List<Hashtag> getHashtags();
-        public List<Url> getQuarantineList();
+        public IList<Sir> getSirs();
+        public IList<Mention> getMentions();
+        public IList<Hashtag> getHashtags();
+        public IList<Url> getQuarantineList();
     }
 }

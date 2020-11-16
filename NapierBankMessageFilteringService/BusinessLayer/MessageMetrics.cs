@@ -95,7 +95,7 @@ namespace BusinessLayer
         /// Method <c>getHashtags</c> 
         /// returns a list of hashtags
         /// </summary>
-        public List<Hashtag> getHashtags()
+        public IList<Hashtag> getHashtags()
         {
             throw new NotImplementedException();
         }
@@ -104,16 +104,16 @@ namespace BusinessLayer
         /// Method <c>getMentions</c> 
         /// returns a list of mentions
         /// </summary>
-        public List<Mention> getMentions()
+        public IList<Mention> getMentions()
         {
-            throw new NotImplementedException();
+            return Mentions;
         }
 
         /// <summary>
         /// Method <c>getSirs</c> 
         /// returns a list of sirs
         /// </summary>
-        public List<Sir> getSirs()
+        public IList<Sir> getSirs()
         {
             throw new NotImplementedException();
         }
@@ -122,7 +122,7 @@ namespace BusinessLayer
         /// Method <c>getQuarantineList</c> 
         /// returns a list of sirs
         /// </summary>
-        public List<Url> getQuarantineList()
+        public IList<Url> getQuarantineList()
         {
             throw new NotImplementedException();
         }
