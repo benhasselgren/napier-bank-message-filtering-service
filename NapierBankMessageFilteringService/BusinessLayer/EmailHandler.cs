@@ -58,7 +58,7 @@ namespace BusinessLayer
 
                 foreach (string word in words)
                 {
-                    if (Regex.IsMatch(word, "http.:\\/\\/.*"))
+                    if (Regex.IsMatch(word, "http.?:\\\\www.*"))
                     {
                         //If it is a url then add url to quarantine list and replace with url quarantined
                         processedText += "<URL Quarantined> ";
@@ -81,7 +81,10 @@ namespace BusinessLayer
  
                 foreach(string word in words)
                 {
-                    if(Regex.IsMatch(word, "http.:\\/\\/.*"))
+                    string pattern = @"http.?:\\\\www.*";
+                    Match m = Regex.Match(word, pattern);
+
+                    if (m.Success)
                     {
                         //If it is a url then add url to quarantine list and replace with url quarantined
                         processedText += "<URL Quarantined> ";

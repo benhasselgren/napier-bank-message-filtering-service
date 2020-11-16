@@ -72,7 +72,11 @@ namespace BusinessLayer
         /// </summary>
         public void addSir(string sortCode, string natureOfIncident)
         {
-            throw new NotImplementedException();
+            //Create new sir and add it to sirs list
+            Sir s = new Sir();
+            s.SortCode = sortCode;
+            s.NatureOfIncident = natureOfIncident;
+            Sirs.Add(s);
         }
 
         /// <summary>
@@ -81,7 +85,10 @@ namespace BusinessLayer
         /// </summary>
         public void addUrl(string address)
         {
-            throw new NotImplementedException();
+            //Create new url and it to quarantine list
+            Url u = new Url();
+            u.Address = address;
+            QuarantineList.Add(u);
         }
 
         /// <summary>
