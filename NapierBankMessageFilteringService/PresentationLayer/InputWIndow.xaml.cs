@@ -20,6 +20,8 @@ namespace PresentationLayer
     public partial class InputWIndow : Window
     {
         private IMessageBankFacade bankMessages;
+        private Message currentMessage;
+        private int messageProcessedCount;
 
         public InputWIndow()
         {
@@ -33,7 +35,11 @@ namespace PresentationLayer
 
             //Hide processed message panel
             ProcessedMessagePanel.Visibility = Visibility.Hidden;
-            
+
+            //set processed message count to 0
+            messageProcessedCount = 0;
+
+
         }
 
         private void process_message_btn_Click(object sender, RoutedEventArgs e)
@@ -82,6 +88,34 @@ namespace PresentationLayer
 
             //Text
             text_input.Text = message.MessageText;
+
+            //Save current message in variable
+            currentMessage = message;
+        }
+
+        private void add_message_btn_Click(object sender, RoutedEventArgs e)
+        {
+            bool verifyMessage = false;
+            try
+            {
+                //Add message to list
+                verifyMessage = this.bankMessages.verifyMessage(currentMessage);
+            }
+            catch(Exception ex)
+            {
+                //Show error message
+                error_message_title.Text = ex.Message;
+            }
+
+            if(verifyMessage)
+            {
+                //Update processed message count and output value
+                messageProcessedCount++;
+                number_processed_title.Content = messageProcessedCount + " processed";
+
+                //Clear form
+                ProcessedMessagePanel.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

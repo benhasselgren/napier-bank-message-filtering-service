@@ -59,7 +59,6 @@ namespace BusinessLayer
 
                 //Split rest of text by spaces
                 string[] words = sirBody[2].Split(' ');
-                
 
                 foreach (string word in words)
                 {
