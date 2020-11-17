@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "vdvWkiAypVwltEkbZWQy4+6SVhSO/uxDE2ynQPnY9m0ymoY+v6+7/95Z4V57Jl+EvNpg43zzE5XvvHgZJceksQ==",
+  "dgSpecHash": "Ud6duOPyUP9YEYZlB6pHyuwt7ahdWORGTL3V617ObTJjw3T4pIQEAZDPI1Eo4BldWhCGIyoxrJXN4RP/J3eaZA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\PresentationLayer\\PresentationLayer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
+    "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\json.net\\1.0.23\\json.net.1.0.23.nupkg.sha512",
+    "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+  ],
   "logs": []
 }

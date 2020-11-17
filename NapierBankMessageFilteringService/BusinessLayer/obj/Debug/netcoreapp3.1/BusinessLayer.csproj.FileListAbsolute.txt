@@ -2,3 +2,13 @@ C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfoInputs.cache
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.AssemblyInfo.cs
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.deps.json
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.dll
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\bin\Debug\netcoreapp3.1\BusinessLayer.pdb
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\bin\Debug\netcoreapp3.1\DataLayer.dll
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\bin\Debug\netcoreapp3.1\DataLayer.pdb
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.csproj.CopyComplete
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.dll
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\obj\Debug\netcoreapp3.1\BusinessLayer.pdb
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\bin\Debug\netcoreapp3.1\Models.dll
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\BusinessLayer\bin\Debug\netcoreapp3.1\Models.pdb

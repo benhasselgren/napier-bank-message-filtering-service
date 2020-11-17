@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessLayer;
+using Microsoft.Win32;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+using System.IO;
 using System.Windows.Shapes;
 
 namespace PresentationLayer
@@ -20,9 +12,74 @@ namespace PresentationLayer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IMessageBankFacade bankMessages;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public MainWindow(IMessageBankFacade mbf)
+        {
+            this.bankMessages = mbf;
+            InitializeComponent();
+            listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
+            sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
+            trendingList.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
+        }
+
+        private void add_messages_Click(object sender, RoutedEventArgs e)
+        {
+            InputWIndow inputWindow = new InputWIndow(bankMessages);
+            inputWindow.Show();
+            this.Close();
+        }
+
+        private void add_messages_file_Click(object sender, RoutedEventArgs e)
+        {
+            // Create OpenFileDialog 
+            OpenFileDialog readFileDialog = new OpenFileDialog();
+
+            // Set dialog setup properties
+            readFileDialog.DefaultExt = ".csv";
+            readFileDialog.Title = "Read Unprocessed Messages";
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = readFileDialog.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Call method to process messages
+                bankMessages.processMessagesByFile(readFileDialog.FileName);
+            }
+
+            //Save to a file by users choice
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            // Set dialog setup properties
+            saveFileDialog.Title = "Save Processed Messages";
+            saveFileDialog.Filter = "Json files (*.json)|*.json";
+            saveFileDialog.InitialDirectory = @"C:\";   
+
+
+            result = saveFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                bankMessages.saveMessages(saveFileDialog.FileName);
+
+                //Output metrics to window
+                listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
+                sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
+                trendingList.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
+
+                //Update tabs content by switching tabs then switching back
+                tabListControl.SelectedIndex = 1;
+                tabListControl.SelectedIndex = 0;
+
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using BusinessLayer.Classes;
-using DataLayer.Classes;
+﻿using DataLayer;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,67 +10,90 @@ namespace BusinessLayer
     /// Class <c>MessageBankFacade</c> 
     /// A facade that the presentation layer can communicate with to process messages
     /// </summary>
-    class MessageBankFacade
+    public class MessageBankFacade : IMessageBankFacade
     {
-
-        public static class abbreviations 
-        { 
-        
-        }
-
         // ------------------ Instance Variables ------------------
-        private List<Hashtag> trendingList;
-        private List<string> mentions;
-        private List<string> sirList;
-        private List<ProcessedMessage> processedMessages;
-        private DataFacade messageData;
-        private ProcessedMessageFactory processedMessageFactory;
+        public IList<Abbreviation> Abbreviations { get; private set; }
+        public IList<Message> ProcessedMessages { get; private set; }
+        public IMessageMetrics MessageMetrics { get; private set; }
+        public IDataFacade MessageData { get; private set; }
+        public IMessageFactory MessageFactory { get; private set; }
 
-        // ------------------ Constructors ------------------
+        // ------------------ Constructor ------------------
+        public MessageBankFacade(IMessageMetrics messageMetrics, IDataFacade messageData, IMessageFactory messageFactory)
+        {
+            Abbreviations = new List<Abbreviation>();
+            ProcessedMessages = new List<Message>();
+            MessageMetrics = messageMetrics;
+            MessageData = messageData;
+            MessageFactory = messageFactory;
 
-        // ------------------ Getters/Setters ------------------
-        internal List<Hashtag> TrendingList { get => trendingList; set => trendingList = value; }
-        public List<string> Mentions { get => mentions; set => mentions = value; }
-        public List<string> SirList { get => sirList; set => sirList = value; }
-        internal List<ProcessedMessage> ProcessedMessages { get => processedMessages; set => processedMessages = value; }
-        public DataFacade MessageData { get => messageData; set => messageData = value; }
-        internal ProcessedMessageFactory ProcessedMessageFactory { get => processedMessageFactory; set => processedMessageFactory = value; }
+            //Populate abbreviations list
+            messageData.loadAbbreviations(Abbreviations);
+        }
 
         // ------------------ Methods ------------------
         /// <summary>
-        /// Method <c>loadMessagesByFile</c> 
-        /// Loads messages from a file by calling loadMessages() in data layer
+        /// Method <c>processMessagesByFile</c> 
+        /// Loads messages from a file by calling loadData() in data layer
         /// </summary>
-        public bool loadMessagesByFile(string file)
+        public bool processMessagesByFile(string file)
         {
-            return false;
+            List<string> data = MessageData.loadData(file);
+
+            foreach(string line in data)
+            {
+                string[] fields = line.Split(",,");
+                verifyMessage(processMessage(fields[0], fields[1]));
+            }
+            return true;
         }
 
         /// <summary>
-        /// Method <c>addMessage</c> 
+        /// Method <c>processMessage</c> 
         /// Adds a new message and processes it
         /// </summary>
-        public ProcessedMessage addMessage(string header, string body)
+        public Message processMessage(string header, string body)
         {
-            return null;
+            //Create a message
+            Message message = MessageFactory.createMessage(header, body);
+
+            //Get the correct handler to process the message
+            IHandler handler = MessageFactory.getHandler(message);
+
+            //Process the message
+            handler.processMessage(message, MessageMetrics, Abbreviations);
+
+            return message;
         }
 
         /// <summary>
         /// Method <c>verifyMessage</c> 
         /// Verify a processed message and adds it to the processed message list
         /// </summary>
-        public ProcessedMessage verifyMessage(ProcessedMessage unverifiedMessage)
+        public bool verifyMessage(Message message)
         {
-            return null;
+            ProcessedMessages.Add(message);
+            return true;
         }
 
         /// <summary>
-        /// Method <c>saveMessage</c> 
-        /// Savesa messages to file
+        /// Method <c>saveMessages</c> 
+        /// Saves messages to file
         /// </summary>
-        public bool saveData()
+        public bool saveMessages(string filepath)
         {
-            return false;
+            MessageData.saveData(ProcessedMessages, filepath);
+            return true;
+        }
+
+        /// <summary>
+        /// Method <c>getMessageMetrics</c> 
+        /// Returns the message metrics
+        /// </summary>
+        public IMessageMetrics getMessageMetrics()
+        {
+            return MessageMetrics;
         }
     }
 }

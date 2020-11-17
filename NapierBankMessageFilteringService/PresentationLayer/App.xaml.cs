@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Autofac;
+using BusinessLayer;
+using PresentationLayer.Properties;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +16,14 @@ namespace PresentationLayer
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var container = ContainerConfig.Configure();
+            
+            var messageBankApp = container.Resolve<IMessageBankFacade>();
+
+            MainWindow mainWindow =  new MainWindow(messageBankApp);
+            mainWindow.Show();
+        }
     }
 }
