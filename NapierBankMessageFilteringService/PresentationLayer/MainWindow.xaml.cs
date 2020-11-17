@@ -1,18 +1,8 @@
-﻿using Autofac;
-using BusinessLayer;
+﻿using BusinessLayer;
+using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+using System.IO;
 using System.Windows.Shapes;
 
 namespace PresentationLayer
@@ -48,9 +38,7 @@ namespace PresentationLayer
         private void add_messages_file_Click(object sender, RoutedEventArgs e)
         {
             // Create OpenFileDialog 
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-
+            OpenFileDialog dlg = new OpenFileDialog();
 
             // Set filter default file extension 
             dlg.DefaultExt = ".csv";
@@ -67,9 +55,27 @@ namespace PresentationLayer
                 bankMessages.processMessagesByFile(dlg.FileName);
             }
 
-            listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
-            sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
-            trendingList.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
+
+            //Save messages
+            OpenFileDialog folderBrowser = new OpenFileDialog();
+            // Set validate names and check file exists to false otherwise windows will
+            // not let you select "Folder Selection."
+            folderBrowser.ValidateNames = false;
+            folderBrowser.CheckFileExists = false;
+            folderBrowser.CheckPathExists = true;
+            // Always default to Folder Selection.
+            folderBrowser.FileName = "Folder Selection.";
+
+            if (folderBrowser.ShowDialog() == true)
+            {
+                //Get the user to choose path
+                string folderPath = System.IO.Path.GetDirectoryName(folderBrowser.FileName);
+                bankMessages.saveMessages(folderPath);
+
+                listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
+                sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
+                trendingList.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
+            }
         }
     }
 }

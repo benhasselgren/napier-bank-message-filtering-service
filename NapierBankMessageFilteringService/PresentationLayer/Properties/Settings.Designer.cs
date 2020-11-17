@@ -22,5 +22,15 @@ namespace PresentationLayer.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-" +
+            "service\\NapierBankMessageFilteringService\\DataLayer\\Data\\abbreviations.csv")]
+        public string DataPath {
+            get {
+                return ((string)(this["DataPath"]));
+            }
+        }
     }
 }

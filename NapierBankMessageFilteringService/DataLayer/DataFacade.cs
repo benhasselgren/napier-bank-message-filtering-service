@@ -26,13 +26,13 @@ namespace DataLayer
         {
             List<string> data = new List<string>();
 
-            using (StreamReader sr = new StreamReader(@file))
+            using (StreamReader sr = new StreamReader(file, Encoding.ASCII))
             {
                 string currentLine;
                 // currentLine will be null when the StreamReader reaches the end of file
                 while ((currentLine = sr.ReadLine()) != null)
                 {
-                    data.Add(currentLine);
+                    data.Add(currentLine.Replace("\\r\\n", "\r\n"));
                 }
             }
             return data;

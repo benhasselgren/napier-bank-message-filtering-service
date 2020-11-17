@@ -48,7 +48,10 @@ namespace BusinessLayer
                 //Set rest of words to body
                 var body = emailMessage.MessageText.Substring(spaceIndex + 14);
 
-                string[] sirBody = body.Split(new string[] { "\r" }, StringSplitOptions.None);
+                //body = body.Replace("\\r\\n", "\r\n");
+
+                //Remove extra backslash
+                string[] sirBody = body.Split("\r\n", StringSplitOptions.None);
 
                 //Get sortcode and nature of incident and add them to message metrics
                 var matchSortCode = Regex.Match(sirBody[0], "(?<=:).*");
