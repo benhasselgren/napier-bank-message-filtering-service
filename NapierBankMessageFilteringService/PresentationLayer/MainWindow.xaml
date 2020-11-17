@@ -8,7 +8,7 @@
         Title="MainWindow" Height="384" Width="590">
 
     <!-- Grid Layout -->
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -33,7 +33,7 @@
             </StackPanel>
         </DockPanel>
         <DockPanel Background="#FFEEEEEE" Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="3">
-            <TabControl>
+            <TabControl x:Name="tabListControl" SelectedItem="{Binding SelectedTab, Mode=OneWayToSource}">
                 <TabItem Header="Mentions">
                     <ListBox x:Name="listOfMentions" Grid.Row="1" BorderThickness="0" ItemsSource="{Binding}">
                         <ListBox.ItemTemplate>

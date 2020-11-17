@@ -70,9 +70,15 @@ namespace PresentationLayer
             {
                 bankMessages.saveMessages(saveFileDialog.FileName);
 
+                //Output metrics to window
                 listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
                 sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
                 trendingList.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
+
+                //Update tabs content by switching tabs then switching back
+                tabListControl.SelectedIndex = 1;
+                tabListControl.SelectedIndex = 0;
+
             }
         }
     }
