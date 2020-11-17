@@ -47,9 +47,7 @@ namespace DataLayer
             string json = JsonConvert.SerializeObject(processedMessages.ToArray());
 
             //write string to file
-            string file = filepath + "\\processed-messages.txt";
-
-            System.IO.File.WriteAllText(@file, json);
+            System.IO.File.WriteAllText(@filepath, json);
         }
 
         /// <summary>

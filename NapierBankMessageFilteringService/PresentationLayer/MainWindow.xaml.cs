@@ -38,39 +38,37 @@ namespace PresentationLayer
         private void add_messages_file_Click(object sender, RoutedEventArgs e)
         {
             // Create OpenFileDialog 
-            OpenFileDialog dlg = new OpenFileDialog();
+            OpenFileDialog readFileDialog = new OpenFileDialog();
 
-            // Set filter default file extension 
-            dlg.DefaultExt = ".csv";
-
+            // Set dialog setup properties
+            readFileDialog.DefaultExt = ".csv";
+            readFileDialog.Title = "Read Unprocessed Messages";
 
             // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
+            Nullable<bool> result = readFileDialog.ShowDialog();
 
 
             // Get the selected file name and display in a TextBox 
             if (result == true)
             {
-                // Call method
-                bankMessages.processMessagesByFile(dlg.FileName);
+                // Call method to process messages
+                bankMessages.processMessagesByFile(readFileDialog.FileName);
             }
 
+            //Save to a file by users choice
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
 
-            //Save messages
-            OpenFileDialog folderBrowser = new OpenFileDialog();
-            // Set validate names and check file exists to false otherwise windows will
-            // not let you select "Folder Selection."
-            folderBrowser.ValidateNames = false;
-            folderBrowser.CheckFileExists = false;
-            folderBrowser.CheckPathExists = true;
-            // Always default to Folder Selection.
-            folderBrowser.FileName = "Folder Selection.";
+            // Set dialog setup properties
+            saveFileDialog.Title = "Save Processed Messages";
+            saveFileDialog.Filter = "Json files (*.json)|*.json";
+            saveFileDialog.InitialDirectory = @"C:\";   
 
-            if (folderBrowser.ShowDialog() == true)
+
+            result = saveFileDialog.ShowDialog();
+
+            if (result == true)
             {
-                //Get the user to choose path
-                string folderPath = System.IO.Path.GetDirectoryName(folderBrowser.FileName);
-                bankMessages.saveMessages(folderPath);
+                bankMessages.saveMessages(saveFileDialog.FileName);
 
                 listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
                 sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();

@@ -113,21 +113,20 @@ namespace PresentationLayer
 
         private void finish_input_btn_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog folderBrowser = new OpenFileDialog();
-            // Set validate names and check file exists to false otherwise windows will
-            // not let you select "Folder Selection."
-            folderBrowser.ValidateNames = false;
-            folderBrowser.CheckFileExists = false;
-            folderBrowser.CheckPathExists = true;
-            // Always default to Folder Selection.
-            folderBrowser.FileName = "Folder Selection.";
+            //Save to a file by users choice
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
 
-            if (folderBrowser.ShowDialog() == true)
+            // Set dialog setup properties
+            saveFileDialog.Title = "Save Processed Messages";
+            saveFileDialog.Filter = "Json files (*.json)|*.json";
+            saveFileDialog.InitialDirectory = @"C:\";
+
+
+            var result = saveFileDialog.ShowDialog();
+
+            if (result == true)
             {
-                //Get the user to choose path
-                string folderPath = Path.GetDirectoryName(folderBrowser.FileName);
-                bankMessages.saveMessages(folderPath);
-
+                bankMessages.saveMessages(saveFileDialog.FileName);
                 //Open main window and pass data back
                 MainWindow main = new MainWindow(bankMessages);
                 main.Show();
