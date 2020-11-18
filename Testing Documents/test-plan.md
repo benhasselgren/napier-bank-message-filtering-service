@@ -5,7 +5,7 @@
 ### Objectives
 - Check that whether the application is working as expected without any error or bugs in real business environment.
 - Verify the usability of the website. Are those functionalities convenient for user or not?
-- Set up automated tetsing with travis.cli
+- Set up automated tetsing with Travis Ci
 
 ### Scope
 - **In scope**
