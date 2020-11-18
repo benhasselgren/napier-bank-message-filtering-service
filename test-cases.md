@@ -61,8 +61,7 @@ ITB6|Check processMessagesByFile() with file|1. Create a csv file with correct m
 ITB7|Check processMessagesByFile() with no file|1. Call processMessagesByFile()|""|Exception with message(You need to provide a file to read from)|||
 ITB8|Check saveMessages() with file|1. Create a processed message<br>2. Call saveMessages()|"Filepath"|A list of processed messages saved to a json file|||
 ITB9|Check saveMessages() with no file|1. Call saveMessages()|""|Exception with message(You need to provide a file to save to)|||
-ITB10|Check verifyMessage() with processed Message|1. Create a processed message<br>2. Call verifyMessage()|Message|A list of processed messages containing the processed message|||
-ITB11|Check verifyMessage() with empty message|1. Call verifyMessage()|Empty Message|Exception with message(Message is empty)|||
+ITB10|Check verifyMessage() with null message|1. Call verifyMessage()|null|Exception with message(Message is empty)|||
 
 ### Presentation System Layer (GUI)
 > Integration tests not a priority for this project.
