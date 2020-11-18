@@ -4,25 +4,24 @@
 
 ### Objectives
 - Check that whether the application is working as expected without any error or bugs in real business environment.
-- Check that GUI is working as expected and & meets the customer needs.
 - Verify the usability of the website. Are those functionalities convenient for user or not?
 
 ### Scope
 - **In scope**
-  - This project will focus on testing all the functions of the napier bank message filtering application. (In this case, this will require all 3 layers of the application to be       tested).
+  - This project will focus on testing all the functions of the napier bank message filtering application. (In this case, this will require all 3 layers of the application to be tested).
   - Integration of functions will be tested to see that parts of the applications work together correctly.
 - **Out of scope**
   - Nonfunctional testing (eg. softcases in use case diagarm) such as stress, scalability or response time will not be tested.
   - Hardware.
+  - The GUI. Due to the limited time left on this project test methods in the presentation layer GUI will not be tested. This decision was made as tasks had to be prioritised and all the functionality of the application is in the business and data layers.
 
 ## Test Items, Tasks and Deliverables
 
 ### Test Items
 Items|Version
 ------------|------------
-Data system (Data Layer)|1.0
-Business logic system (Business Layer)|1.0
-GUI (Presentation Layer)|1.0
+Data system (Data Layer)|1.1
+Business logic system (Business Layer)|1.1
 
 ## Tasks
 Order|Task
@@ -56,7 +55,7 @@ Test Summary report
 ### Software
 - Windows 10 or later
 - Visual Studio (Community Edition)
-- Version 1.0 of the application solution.
+- Version 1.0 of the application solution or later.
 
 ### Tools
 - Visual Studio Unit tests
