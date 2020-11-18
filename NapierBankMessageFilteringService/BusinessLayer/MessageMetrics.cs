@@ -35,20 +35,27 @@ namespace BusinessLayer
         /// </summary>
         public void addHashtag(string title)
         {
-            var hashtag = Hashtags.FirstOrDefault(hashtag => hashtag.Title == title);
-
-            if(hashtag != null)
+            if (!title.Equals(""))
             {
-                //If hashtag already exists then increment hashtag count by 1
-                hashtag.Count++;
+                var hashtag = Hashtags.FirstOrDefault(hashtag => hashtag.Title == title);
+
+                if (hashtag != null)
+                {
+                    //If hashtag already exists then increment hashtag count by 1
+                    hashtag.Count++;
+                }
+                else
+                {
+                    //Create a new hasthtag, set title, set count to 0 and add to hashtags list
+                    Hashtag ht = new Hashtag();
+                    ht.Title = title;
+                    ht.Count = 1;
+                    Hashtags.Add(ht);
+                }
             }
             else
             {
-                //Create a new hasthtag, set title, set count to 0 and add to hashtags list
-                Hashtag ht = new Hashtag();
-                ht.Title = title;
-                ht.Count = 1;
-                Hashtags.Add(ht);
+                throw new Exception("Empty hashtag string");
             }
         }
 
@@ -58,12 +65,19 @@ namespace BusinessLayer
         /// </summary>
         public void addMention(string mention)
         {
-            //Create new mention and set username
-            Mention m = new Mention();
-            m.Username = mention;
+            if(!mention.Equals(""))
+            {
+                //Create new mention and set username
+                Mention m = new Mention();
+                m.Username = mention;
 
-            //Add mention to list
-            this.Mentions.Add(m);
+                //Add mention to list
+                this.Mentions.Add(m);
+            }
+            else
+            {
+                throw new Exception("Empty mention string");
+            }
         }
 
         /// <summary>
@@ -72,11 +86,18 @@ namespace BusinessLayer
         /// </summary>
         public void addSir(string sortCode, string natureOfIncident)
         {
-            //Create new sir and add it to sirs list
-            Sir s = new Sir();
-            s.SortCode = sortCode;
-            s.NatureOfIncident = natureOfIncident;
-            Sirs.Add(s);
+            if(!sortCode.Equals("") || !natureOfIncident.Equals(""))
+            {
+                //Create new sir and add it to sirs list
+                Sir s = new Sir();
+                s.SortCode = sortCode;
+                s.NatureOfIncident = natureOfIncident;
+                Sirs.Add(s);
+            }
+            else
+            {
+                throw new Exception("Empty sortcode or noi");
+            } 
         }
 
         /// <summary>
@@ -85,10 +106,17 @@ namespace BusinessLayer
         /// </summary>
         public void addUrl(string address)
         {
-            //Create new url and it to quarantine list
-            Url u = new Url();
-            u.Address = address;
-            QuarantineList.Add(u);
+            if(!address.Equals(""))
+            {
+                //Create new url and it to quarantine list
+                Url u = new Url();
+                u.Address = address;
+                QuarantineList.Add(u);
+            }
+            else
+            {
+                throw new Exception("Empty url string");
+            }
         }
 
         /// <summary>
@@ -127,6 +155,21 @@ namespace BusinessLayer
         public IList<Url> getQuarantineList()
         {
             return QuarantineList;
+        }
+
+        public void addMetrics(IMessageMetrics metrics)
+        {
+            foreach (var sir in metrics.getSirs()) Sirs.Add(sir);
+            foreach (var mention in metrics.getMentions()) Mentions.Add(mention);
+            foreach (var quarintine in metrics.getQuarantineList()) QuarantineList.Add(quarintine);
+            foreach (var hashtag in metrics.getHashtags()) addHashtag(hashtag.Title);
+        }
+        public void reset()
+        {
+            Sirs.Clear();
+            Mentions.Clear();
+            QuarantineList.Clear();
+            Hashtags.Clear();
         }
     }
 }

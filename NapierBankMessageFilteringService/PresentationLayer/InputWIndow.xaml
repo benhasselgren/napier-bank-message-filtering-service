@@ -55,27 +55,27 @@
 
                 <!-- ID -->
                 <Label x:Name="id_title" Content="ID" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
-                <TextBox x:Name="id_input" Text="" TextWrapping="Wrap" Width="250"  Margin="0,0,0,0"/>
+                <TextBox x:Name="id_input" Text="" TextWrapping="Wrap" Width="250"  Margin="0,0,0,0" IsReadOnly = "True"/>
 
                 <!-- Sender -->
                 <Label x:Name="sender_title" Content="Sender" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
-                <TextBox x:Name="sender_input" Text="" TextWrapping="Wrap" Width="250" Margin="0,0,0,0"/>
+                <TextBox x:Name="sender_input" Text="" TextWrapping="Wrap" Width="250" Margin="0,0,0,0" IsReadOnly = "True"/>
 
                 <!-- Subject -->
                 <StackPanel x:Name="email_panel" VerticalAlignment="Top">
                     <Label x:Name="subject_title" Content="Subject" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
-                    <TextBox x:Name="subject_input" Text="" TextWrapping="Wrap" Width="250"  Margin="0,0,0,0"/>
+                    <TextBox x:Name="subject_input" Text="" TextWrapping="Wrap" Width="250"  Margin="0,0,0,0" IsReadOnly = "True"/>
                 </StackPanel>
 
                 <!-- Text -->
                 <Label x:Name="text_title" Content="Text" HorizontalAlignment="Left" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF7C7C7C"/>
-                <TextBox x:Name="text_input" Text="" TextWrapping="Wrap" Width="250" Height="100" Margin="0,0,0,0"/>
+                <TextBox x:Name="text_input" Text="" TextWrapping="Wrap" Width="250" Height="100" Margin="0,0,0,0" IsReadOnly = "True"/>
 
                 <!-- Add message btn -->
                 <Button x:Name="add_message_btn" Content="Add message" Width="100" Height="31" Margin="10,10,15,10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF4CA83E" Foreground="White" Click="add_message_btn_Click"></Button>
 
                 <!-- Error message -->
-                <TextBlock x:Name="error_message_title" HorizontalAlignment="Right" FontWeight="Bold" Foreground="#FFF73232" FontSize="10" TextWrapping="Wrap"/>
+                <TextBlock x:Name="error_message_title" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FFF73232" FontSize="10" TextWrapping="Wrap"/>
             </StackPanel>
         </DockPanel>
     </Grid>

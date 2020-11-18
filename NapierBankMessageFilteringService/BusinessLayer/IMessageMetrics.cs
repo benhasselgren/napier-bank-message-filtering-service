@@ -17,5 +17,7 @@ namespace BusinessLayer
         public IList<Mention> getMentions();
         public IList<Hashtag> getHashtags();
         public IList<Url> getQuarantineList();
+        public void addMetrics(IMessageMetrics messageMetrics);
+        public void reset();
     }
 }

@@ -24,18 +24,25 @@ namespace DataLayer
         /// </summary>
         public List<string> loadData(string file)
         {
-            List<string> data = new List<string>();
-
-            using (StreamReader sr = new StreamReader(file, Encoding.ASCII))
+            if(File.Exists(file))
             {
-                string currentLine;
-                // currentLine will be null when the StreamReader reaches the end of file
-                while ((currentLine = sr.ReadLine()) != null)
+                List<string> data = new List<string>();
+
+                using (StreamReader sr = new StreamReader(file, Encoding.ASCII))
                 {
-                    data.Add(currentLine.Replace("\\r\\n", "\r\n"));
+                    string currentLine;
+                    // currentLine will be null when the StreamReader reaches the end of file
+                    while ((currentLine = sr.ReadLine()) != null)
+                    {
+                        data.Add(currentLine.Replace("\\r\\n", "\r\n"));
+                    }
                 }
+                return data;
             }
-            return data;
+            else
+            {
+                throw new Exception("File does not exist");
+            }
         }
 
         /// <summary>
@@ -44,15 +51,29 @@ namespace DataLayer
         /// </summary>
         public void saveData(IList<Message> processedMessages, string filepath)
         {
-            string json = JsonConvert.SerializeObject(processedMessages.ToArray());
+            if(processedMessages.Count > 0)
+            {
+                if (!filepath.Equals(""))
+                {
+                    string json = JsonConvert.SerializeObject(processedMessages.ToArray());
 
-            //write string to file
-            System.IO.File.WriteAllText(@filepath, json);
+                    //write string to file
+                    System.IO.File.WriteAllText(@filepath, json);
+                }
+                else
+                {
+                    throw new Exception("Filepath needs to be provided");
+                }
+            }
+            else
+            {
+                throw new Exception("No messages to save");
+            }
         }
 
         /// <summary>
-        /// Method <c>saveMessage</c> 
-        /// Saves processed messaged to a json file
+        /// Method <c>loadAbbreviations</c> 
+        /// Load abbreviations from file
         /// </summary>
         public void loadAbbreviations(IList<Abbreviation> abbreviations)
         {

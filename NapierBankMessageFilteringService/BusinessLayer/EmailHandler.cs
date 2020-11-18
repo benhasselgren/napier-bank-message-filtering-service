@@ -48,8 +48,6 @@ namespace BusinessLayer
                 //Set rest of words to body
                 var body = emailMessage.MessageText.Substring(spaceIndex + 14);
 
-                //body = body.Replace("\\r\\n", "\r\n");
-
                 //Remove extra backslash
                 string[] sirBody = body.Split("\r\n", StringSplitOptions.None);
 
@@ -115,6 +113,11 @@ namespace BusinessLayer
 
             //Trim end space off
             emailMessage.MessageText = processedText.Trim();
+
+            if (processedText.Length > 1028)
+            {
+                throw new Exception("Character limit is 1028 characters for email text");
+            }
         }
     }
 }
