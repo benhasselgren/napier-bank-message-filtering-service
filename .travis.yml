@@ -1,5 +1,4 @@
 language: csharp
-dotnet: 2.1.4
 solution: NapierBankMessageFilteringServicee.sln
 install:
   - nuget restore ./NapierBankMessageFilteringService/NapierBankMessageFilteringService.sln
