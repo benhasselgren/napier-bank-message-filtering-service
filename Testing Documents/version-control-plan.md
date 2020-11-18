@@ -8,7 +8,7 @@
 - All use cases will be created as issues
 
 ## Branches
-> Branches will be used to allow the option of multiple people to work on this project at the same time. Every time a new feature is needed to be implemented a feature branch must be created off the develop branch. Once it has been written and is fully up to date with the develop branch can it then be merged to the develop branch.
+> Branches will be used to allow the option of multiple people to work on this project at the same time. Every time a new feature needs to be implemented a feature branch must be created off the develop branch. Once the feature had been implemented and is fully up to date with the develop branch can it then be merged to the develop branch.
 - **Master Branch**
   - Contains only complete version of the application (V1.0, etc.)
   - Only merged to when sprint iterations are full complete and code been implemented and tested.
@@ -23,3 +23,9 @@
 - All github issues are displayed in a kanban board in zube.
 - Each issue will have correlating tickets describing what needs to be done to complete the issue.
 - Tickets will have team members assigned to. Priority and other attributes will also be added to these tickets to ensure deadlines are met.
+
+## Travis Ci
+> Connected to the github repository
+- Travis will be used for continuous integration
+- It will build the application and will then run all the unit and integration tests.
+- Once all the tests are complete, It will then upload code coverage reports to CodeCov
