@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rhETW0qEj9qHAxe2FEcRj2k3ZzsCCOzHZEPssRalrLar3q1QDWNvAyOVqsMAvNTFywUdVJYZhg9sL88+VUmxzA==",
+  "dgSpecHash": "jZyzr2EvoeDxORwQ5Be7QACevCYnUfYh3GJs3APqFl1GVcOJWeIskdjXvxRYPPfSUDeS11DyusNYFcC/8+wyUA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\XTests\\XTests.csproj",
   "expectedPackageFiles": [
