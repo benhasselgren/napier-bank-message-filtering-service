@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mMHKh2JH2NwlR/4tSausPa999hyS2wZkrsvE6jDcRaLWmia5HILT9qFQTNt3kte73ipSvtlK3N8ETRr0TTcgMA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\Models\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
