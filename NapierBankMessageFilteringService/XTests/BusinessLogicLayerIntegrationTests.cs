@@ -145,7 +145,7 @@ namespace XTests
 
             var mbf = container.Resolve<IMessageBankFacade>();
 
-            string path = "..\\..\\..\\Data\\test.csv";
+            string path = "../../../Data/test.csv";
 
             mbf.processMessagesByFile(path);
 

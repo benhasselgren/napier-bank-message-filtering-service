@@ -16,7 +16,7 @@ namespace XTests
         [Fact]
         public void testLoadDataWithFile()
         {
-            string path = "..\\..\\..\\Data\\test.csv";
+            string path = "../../../Data/test.csv";
 
             DataFacade df = new DataFacade();
 
