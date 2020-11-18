@@ -5,6 +5,7 @@
 ### Objectives
 - Check that whether the application is working as expected without any error or bugs in real business environment.
 - Verify the usability of the website. Are those functionalities convenient for user or not?
+- Set up automated tetsing with travis.cli
 
 ### Scope
 - **In scope**
@@ -30,6 +31,7 @@ Order|Task
 2|Create the test cases
 3|Perform test execution
 4|Create a test summary report
+5|Set up automated testing
 
 ### Deliverables
 Document|
