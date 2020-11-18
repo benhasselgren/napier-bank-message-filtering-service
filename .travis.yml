@@ -6,7 +6,7 @@ script:
   - dotnet --version
   - dotnet restore
   - dotnet build ./NapierBankMessageFilteringService/NapierBankMessageFilteringService.sln -c Travis
-  - dotnet test -c Travis --no-build test/XTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+  - dotnet test -c Travis --no-build ./NapierBankMessageFilteringService/XTests/XTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
 after_script:
   - bash <(curl -s https://codecov.io/bash)
