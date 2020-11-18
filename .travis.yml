@@ -2,9 +2,12 @@ language: csharp
 mono: none
 dotnet: 3.1
 
+env:
+    global:
+      - CODECOV_TOKEN="5f1d7ac5-6fbd-4947-b2fc-35956fce64b8"
+
 script:
   - dotnet --version
-  - dotnet restore
   - dotnet build ./NapierBankMessageFilteringService/NapierBankMessageFilteringService.sln -c Travis
   - dotnet test -c Travis --no-build ./NapierBankMessageFilteringService/XTests/XTests.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
 
