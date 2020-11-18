@@ -16,7 +16,7 @@ namespace XTests
         [Fact]
         public void testLoadDataWithFile()
         {
-            string path = "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\XTests\\Data\\test.csv";
+            string path = "..\\..\\..\\Data\\test.csv";
 
             DataFacade df = new DataFacade();
 

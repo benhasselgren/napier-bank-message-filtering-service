@@ -78,7 +78,7 @@ namespace DataLayer
         public void loadAbbreviations(IList<Abbreviation> abbreviations)
         {
             //Get abbreviations file path
-            string path = @"C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\DataLayer\\Data\\abbreviations.csv";
+            string path = @"..\\..\\..\\..\\DataLayer\\Data\\abbreviations.csv";
 
             using (TextFieldParser parser = new TextFieldParser(path))
             {

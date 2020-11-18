@@ -145,7 +145,7 @@ namespace XTests
 
             var mbf = container.Resolve<IMessageBankFacade>();
 
-            string path = "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\XTests\\Data\\test.csv";
+            string path = "..\\..\\..\\Data\\test.csv";
 
             mbf.processMessagesByFile(path);
 
