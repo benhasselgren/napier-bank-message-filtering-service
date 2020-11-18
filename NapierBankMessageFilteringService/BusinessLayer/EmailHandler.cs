@@ -48,8 +48,6 @@ namespace BusinessLayer
                 //Set rest of words to body
                 var body = emailMessage.MessageText.Substring(spaceIndex + 14);
 
-                //body = body.Replace("\\r\\n", "\r\n");
-
                 //Remove extra backslash
                 string[] sirBody = body.Split("\r\n", StringSplitOptions.None);
 
