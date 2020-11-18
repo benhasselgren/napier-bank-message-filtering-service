@@ -15,30 +15,29 @@ UTD6|Check loadAbbreviations() returns list of abbreviations|1. Call loadAbbrevi
 ### Business System Logic Layer
 Test Case ID|Test Scenario|Test Steps|Test Data|Expected Results|Actual Results|Pass
 ------------|------------|------------|------------|------------|------------|------------|
-UTB1|Check processMessage() processes an sms message correctly|1. Create sms message <br>2. Call processMessage()|Message|An sms message with correct values|||
-UTB2|Check processMessage() processes a se email message correctly|1. Create a se email nmessage <br>2. Call processMessage()|Message|A se email message with correct values|||
-UTB3|Check processMessage() processes a sir email message correctly|1. Create a sir email message <br>2. Call processMessage()|Message|A sir email message with correct values|||
-UTB4|Check processMessage() processes a tweet email message correctly|1. Create a tweet message <br>2. Call processMessage()|Message|A tweet email message with correct values|||
-UTB5|Check addHashtag() adds a hashtag to a list|1. Create a string<br>2. Call addHashtag()|"#test"|A hahstag list containing "#test" with count value 1|||
-UTB6|Check addHashtag() adds an existing hashtag to a list correctly|1. Create a string<br>2. Call addHashtag()|"#test"|A hahstags list containing "#test" with count value 2|||
-UTB7|Check addHashtag() with empty string|1. Create a string<br>2. Call addHashtag()|""|Exception with message(Empty hashtag string)|||
-UTB8|Check addSir() adds a sir to a list|1. Create two strings<br>2. Call addSir()|"99-99-99","Theft"|A sirs list containing sir with correct values|||
-UTB9|Check addSir() with empty strings|1. Create two strings<br>2. Call addSir()|"",""|Exception with message(Empty sortcode and noi)|||
-UTB10|Check addMention() adds a mention to a list|1. Create a string<br>2. Call addMention()|"@test"|A mentions list containing "@test"|||
-UTB11|Check addMention() with empty string|1. Create a string<br>2. Call addMention()|""|Exception with message(Empty mention string)|||
-UTB12|Check addUrl() adds a url to a list|1. Create a string<br>2. Call addUrl()|"https://www.test.com"|A quarantine list containing "https://www.test.com"|||
-UTB13|Check addUrl() with empty string|1. Create a string<br>2. Call addUrl()|""|Exception with message(Empty url string)|||
-UTB14|Check getHashtags() returns list of hashtags|1. Call getHashtags()|N/A|List of hashtags|||
-UTB15|Check getSirs() returns list of sirs|1. Call getSirs()|N/A|List of sirs|||
-UTB16|Check getMentions() returns list of mentions|1. Call getMentions()|N/A|List of mentions|||
-UTB17|Check getQuarantineList() returns list of urls|1. Call getQuarantineList()|N/A|List of urls|||
-UTB18|Check createMessage() returns an unprocessed email message correctly|1. Create an email message <br>2. Call createMessage()|"emailheader","emailbody"|A message with MessageType == EMAIL|||
-UTB19|Check createMessage() returns an unprocessed sms message correctly|1. Create a sms message <br>2. Call createMessage()|"smsheader","smsheader"|A message with MessageType == SMS|||
-UTB20|Check createMessage() returns an unprocessed tweet message correctly|1. Create a tweet message <br>2. Call createMessage()|"tweetheader","tweetbody"|A message with MessageType == TWEET|||
-UTB21|Check getHandler() returns an email handler|1. Create an email message<br>2. Call getHandler()|Message|An email handler object|||
-UTB22|Check getHandler() returns a sms handler|1. Create a sms message<br>2. Call getHandler()|Message|An sms handler object|||
-UTB23|Check getHandler() returns a tweet handler|1. Create a tweet message<br>2. Call getHandler()|Message|An tweet handler object|||
-UTB24|Check getMessageMetrics() returns message metrics|1. Create a message metric object<br>2. Call getMessageMetrics()|N/A|A message metric object with correct information||
+UTB1|Check processMessage() processes an sms message correctly|1. Create sms message <br>2. Call processMessage()|Message|An sms message with correct values|As Expected|Pass|
+UTB2|Check processMessage() processes a se email message correctly|1. Create a se email nmessage <br>2. Call processMessage()|Message|A se email message with correct values|As Expected|Pass|
+UTB3|Check processMessage() processes a sir email message correctly|1. Create a sir email message <br>2. Call processMessage()|Message|A sir email message with correct values|As Expected|Pass|
+UTB4|Check processMessage() processes a tweet email message correctly|1. Create a tweet message <br>2. Call processMessage()|Message|A tweet email message with correct values|As Expected|Pass|
+UTB5|Check addHashtag() adds a hashtag to a list|1. Create a string<br>2. Call addHashtag()|"#test"|A hahstag list containing "#test" with count value 1|As Expected|Pass|
+UTB6|Check addHashtag() adds an existing hashtag to a list correctly|1. Create a string<br>2. Call addHashtag()|"#test"|A hahstags list containing "#test" with count value 2|As Expected|Pass|
+UTB7|Check addHashtag() with empty string|1. Create a string<br>2. Call addHashtag()|""|Exception with message(Empty hashtag string)|As Expected|Pass|
+UTB8|Check addSir() adds a sir to a list|1. Create two strings<br>2. Call addSir()|"99-99-99","Theft"|A sirs list containing sir with correct values|As Expected|Pass|
+UTB9|Check addSir() with empty strings|1. Create two strings<br>2. Call addSir()|"",""|Exception with message(Empty sortcode or noi)|As Expected|Pass|
+UTB10|Check addMention() adds a mention to a list|1. Create a string<br>2. Call addMention()|"@test"|A mentions list containing "@test"|As Expected|Pass|
+UTB11|Check addMention() with empty string|1. Create a string<br>2. Call addMention()|""|Exception with message(Empty mention string)|As Expected|Pass|
+UTB12|Check addUrl() adds a url to a list|1. Create a string<br>2. Call addUrl()|"https://www.test.com"|A quarantine list containing "https://www.test.com"|As Expected|Pass|
+UTB13|Check addUrl() with empty string|1. Create a string<br>2. Call addUrl()|""|Exception with message(Empty url string)|As Expected|Pass|
+UTB14|Check getHashtags() returns list of hashtags|1. Call getHashtags()|N/A|List of hashtags|As Expected|Pass|
+UTB15|Check getSirs() returns list of sirs|1. Call getSirs()|N/A|List of sirs|As Expected|Pass|
+UTB16|Check getMentions() returns list of mentions|1. Call getMentions()|N/A|List of mentions|As Expected|Pass|
+UTB17|Check getQuarantineList() returns list of urls|1. Call getQuarantineList()|N/A|List of urls|As Expected|Pass|
+UTB18|Check createMessage() returns an unprocessed email message correctly|1. Create an email message <br>2. Call createMessage()|"emailheader","emailbody"|A message with MessageType == EMAIL|As Expected|Pass|
+UTB19|Check createMessage() returns an unprocessed sms message correctly|1. Create a sms message <br>2. Call createMessage()|"smsheader","smsheader"|A message with MessageType == SMS|As Expected|Pass|
+UTB20|Check createMessage() returns an unprocessed tweet message correctly|1. Create a tweet message <br>2. Call createMessage()|"tweetheader","tweetbody"|A message with MessageType == TWEET|As Expected|Pass|
+UTB21|Check getHandler() returns an email handler|1. Create an email message<br>2. Call getHandler()|Message|An email handler object|As Expected|Pass|
+UTB22|Check getHandler() returns a sms handler|1. Create a sms message<br>2. Call getHandler()|Message|An sms handler object|As Expected|Pass|
+UTB23|Check getHandler() returns a tweet handler|1. Create a tweet message<br>2. Call getHandler()|Message|An tweet handler object|As Expected|Pass|
 
 > No unit tests needed for factory and facade class as methods used are more suited for integration testing.
 
