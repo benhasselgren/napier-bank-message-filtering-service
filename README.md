@@ -1,4 +1,6 @@
 # Napier Bank Message Filtering Facility
+[![Releases](https://img.shields.io/github/release/benhasselgren/napier-bank-message-filtering-service/all.svg?style=flat-square)](https://github.com/benhasselgren/napier-bank-message-filtering-service/releases)
+[![LICENSE](https://img.shields.io/github/license/benhasselgren/napier-bank-message-filtering-service.svg?style=flat-square)](https://github.com/benhasselgren/napier-bank-message-filtering-service/blob/master/LICENSE)
 > Author: Ben Hasselgren
 
 **Main Branch**<br>
