@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "luEDeSVciaIJWsVh6cds+BzcFsZbE28ilcIFKyxm9Wp9mzmmSVQnBrSsfIJoGeCeNLE/gFeCkV9wc/ySAGwP8A==",
+  "dgSpecHash": "rhETW0qEj9qHAxe2FEcRj2k3ZzsCCOzHZEPssRalrLar3q1QDWNvAyOVqsMAvNTFywUdVJYZhg9sL88+VUmxzA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ben Hasselgren\\source\\repos\\benhasselgren\\napier-bank-message-filtering-service\\NapierBankMessageFilteringService\\XTests\\XTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\autofac\\6.0.0\\autofac.6.0.0.nupkg.sha512",
     "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
+    "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\coverlet.msbuild\\2.9.0\\coverlet.msbuild.2.9.0.nupkg.sha512",
     "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\json.net\\1.0.23\\json.net.1.0.23.nupkg.sha512",
     "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\Ben Hasselgren\\.nuget\\packages\\microsoft.net.test.sdk\\16.5.0\\microsoft.net.test.sdk.16.5.0.nupkg.sha512",

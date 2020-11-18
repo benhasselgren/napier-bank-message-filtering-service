@@ -101,7 +101,6 @@ C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\XTests\obj\Debug\netcoreapp3.1\XTests.csprojAssemblyReference.cache
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\XTests\obj\Debug\netcoreapp3.1\XTests.AssemblyInfoInputs.cache
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\XTests\obj\Debug\netcoreapp3.1\XTests.AssemblyInfo.cs
-C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\XTests\obj\Debug\netcoreapp3.1\XTests.csproj.CoreCompileInputs.cache
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\XTests\obj\Debug\netcoreapp3.1\XTests.csproj.CopyComplete
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\XTests\obj\Debug\netcoreapp3.1\XTests.dll
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\XTests\obj\Debug\netcoreapp3.1\XTests.pdb
