@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\PresentationLayer\obj\Debug\netcoreapp3.1\
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\PresentationLayer\obj\Release\netcoreapp3.1\
 PresentationLayer
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\PresentationLayer\App.xaml
 2-1528772330
 
-8150913669
+8-1215199560
 198-1787426783
 InputWIndow.xaml;MainWindow.xaml;
 
