@@ -52,17 +52,16 @@ UTB23|Check getHandler() returns a tweet handler|1. Create a tweet message<br>2.
 ### Business System Logic Layer
 Test Case ID|Test Scenario|Test Steps|Test Data|Expected Results|Actual Results|Pass
 ------------|------------|------------|------------|------------|------------|------------|
-ITB1|Check processMessage() processes an sms message correctly|1. Create sms message <br>2. Call processMessage()|"smsheader""smsbody"|An sms message with correct values|||
-ITB2|Check processMessage() processes a se email message correctly|1. Create a se email nmessage<br>2. Call processMessage()|"seemailheader","seemailbody"|A se email message with correct values|||
-ITB3|Check processMessage() processes a sir email message correctly|1. Create a sir email message<br>2. Call processMessage()|"siremailheader","siremailbody"|A sir email message with correct values|||
-ITB4|Check processMessage() processes a tweet email message correctly|1. Create a tweet message<br>2. Call processMessage()|"tweetheader","tweetbody"|A tweet email message with correct values|||
-ITB5|Check processMessage() with empty strings|1. Create two empty strings<br>2. Call processMessage()|"",""|Exception with message(Message missing text or header)|||
-ITB6|Check processMessagesByFile() with file|1. Create a csv file with correct message fomratting<br>2. Call processMessagesByFile()|"Filepath"|A list of formatted messages|||
-ITB7|Check processMessagesByFile() with no file|1. Call processMessagesByFile()|""|Exception with message(You need to provide a file to read from)|||
-ITB8|Check saveMessages() with file|1. Create a processed message<br>2. Call saveMessages()|"Filepath"|A list of processed messages saved to a json file|||
-ITB9|Check saveMessages() with no file|1. Call saveMessages()|""|Exception with message(You need to provide a file to save to)|||
-ITB10|Check verifyMessage() with processed Message|1. Create a processed message<br>2. Call verifyMessage()|Message|A list of processed messages containing the processed message|||
-ITB11|Check verifyMessage() with empty message|1. Call verifyMessage()|Empty Message|Exception with message(Message is empty)|||
+ITB1|Check processMessage() processes an sms message correctly|1. Create sms message <br>2. Call processMessage()|"smsheader""smsbody"|An sms message with correct values|As Expected|Pass|
+ITB2|Check processMessage() processes a se email message correctly|1. Create a se email nmessage<br>2. Call processMessage()|"seemailheader","seemailbody"|A se email message with correct values|As Expected|Pass|
+ITB3|Check processMessage() processes a sir email message correctly|1. Create a sir email message<br>2. Call processMessage()|"siremailheader","siremailbody"|A sir email message with correct values|As Expected|Pass|
+ITB4|Check processMessage() processes a tweet message correctly|1. Create a tweet message<br>2. Call processMessage()|"tweetheader","tweetbody"|A tweet message with correct values|As Expected|Pass|
+ITB5|Check processMessage() with empty strings|1. Create two empty strings<br>2. Call processMessage()|"",""|Exception with message(Missing text or header)|As Expected|Pass|
+ITB6|Check processMessagesByFile() with file|1. Create a csv file with correct message fomratting<br>2. Call processMessagesByFile()|"Filepath"|A list of formatted messages|As Expected|Pass|
+ITB7|Check processMessagesByFile() with no file|1. Call processMessagesByFile()|""|Exception with message(You need to provide a file to read from)|As Expected|Pass|
+ITB8|Check saveMessages() with file|1. Create a processed message<br>2. Call saveMessages()|"Filepath"|A list of processed messages saved to a json file|As Expected|Pass|
+ITB9|Check saveMessages() with no file|1. Call saveMessages()|""|Exception with message(You need to provide a file to save to)|As Expected|Pass|
+ITB10|Check verifyMessage() with null message|1. Call verifyMessage()|null|Exception with message(Message is empty)|As Expected|Pass|
 
 ### Presentation System Layer (GUI)
 > Integration tests not a priority for this project.
