@@ -24,7 +24,7 @@ namespace XTests
 
             int expectedLength = 18;
 
-            string expectedLastString = "S1234567701,,+447911123456 The most important B4N to remember is to add the international ADN code. A mobile phone number in the United Kingdom always starts.";
+            string expectedLastString = "S1234567701,,+447911123456 The most important B4N to remember is to add the international ADN code.";
 
             Assert.Equal(expectedLength, data.Count);
             Assert.Equal(expectedLastString, data[data.Count-1]);

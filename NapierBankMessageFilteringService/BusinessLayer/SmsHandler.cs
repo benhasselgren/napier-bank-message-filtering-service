@@ -47,6 +47,11 @@ namespace BusinessLayer
 
             //Trim end space off
             message.MessageText = processedText.Trim();
+
+            if(processedText.Length > 140)
+            {
+                throw new Exception("Character limit is 140 characters for sms text");
+            }
         }
     }
 }

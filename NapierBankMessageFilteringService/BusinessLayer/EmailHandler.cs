@@ -113,6 +113,11 @@ namespace BusinessLayer
 
             //Trim end space off
             emailMessage.MessageText = processedText.Trim();
+
+            if (processedText.Length > 1028)
+            {
+                throw new Exception("Character limit is 1028 characters for email text");
+            }
         }
     }
 }

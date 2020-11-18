@@ -22,6 +22,11 @@ namespace BusinessLayer
             //Split message text into array of strings by space
             string[] words = message.MessageText.Split(' ');
 
+            if (words[0].Length > 16)
+            {
+                throw new Exception("Character limit is 140 characters for tweet username");
+            }
+
             //Set sender to first word in array
             message.MessageSender = words[0];
 
@@ -64,6 +69,11 @@ namespace BusinessLayer
 
             //Trim end space off
             message.MessageText = processedText.Trim();
+
+            if (processedText.Length > 140)
+            {
+                throw new Exception("Character limit is 140 characters for tweet text");
+            }
         }
     }
 }

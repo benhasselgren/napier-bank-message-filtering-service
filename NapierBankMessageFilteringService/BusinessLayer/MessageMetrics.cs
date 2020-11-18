@@ -156,5 +156,20 @@ namespace BusinessLayer
         {
             return QuarantineList;
         }
+
+        public void addMetrics(IMessageMetrics metrics)
+        {
+            foreach (var sir in metrics.getSirs()) Sirs.Add(sir);
+            foreach (var mention in metrics.getMentions()) Mentions.Add(mention);
+            foreach (var quarintine in metrics.getQuarantineList()) QuarantineList.Add(quarintine);
+            foreach (var hashtag in metrics.getHashtags()) addHashtag(hashtag.Title);
+        }
+        public void reset()
+        {
+            Sirs.Clear();
+            Mentions.Clear();
+            QuarantineList.Clear();
+            Hashtags.Clear();
+        }
     }
 }

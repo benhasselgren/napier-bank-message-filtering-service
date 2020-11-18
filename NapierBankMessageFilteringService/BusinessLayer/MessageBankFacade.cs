@@ -16,17 +16,19 @@ namespace BusinessLayer
         public IList<Abbreviation> Abbreviations { get; private set; }
         public IList<Message> ProcessedMessages { get; private set; }
         public IMessageMetrics MessageMetrics { get; private set; }
+        public IMessageMetrics TemporaryMessageMetrics { get; private set; }
         public IDataFacade MessageData { get; private set; }
         public IMessageFactory MessageFactory { get; private set; }
 
         // ------------------ Constructor ------------------
-        public MessageBankFacade(IMessageMetrics messageMetrics, IDataFacade messageData, IMessageFactory messageFactory)
+        public MessageBankFacade(IMessageMetrics messageMetrics, IMessageMetrics singleMessageMetrics, IDataFacade messageData, IMessageFactory messageFactory)
         {
             Abbreviations = new List<Abbreviation>();
             ProcessedMessages = new List<Message>();
             MessageMetrics = messageMetrics;
             MessageData = messageData;
             MessageFactory = messageFactory;
+            TemporaryMessageMetrics = singleMessageMetrics;
 
             //Populate abbreviations list
             messageData.loadAbbreviations(Abbreviations);
@@ -39,14 +41,21 @@ namespace BusinessLayer
         /// </summary>
         public bool processMessagesByFile(string file)
         {
-            List<string> data = MessageData.loadData(file);
-
-            foreach(string line in data)
+            if (!file.Equals(""))
             {
-                string[] fields = line.Split(",,");
-                verifyMessage(processMessage(fields[0], fields[1]));
+                List<string> data = MessageData.loadData(file);
+
+                foreach (string line in data)
+                {
+                    string[] fields = line.Split(",,");
+                    verifyMessage(processMessage(fields[0], fields[1]));
+                }
+                return true;
             }
-            return true;
+            else
+            {
+                throw new Exception("You need to provide a file to read from");
+            }
         }
 
         /// <summary>
@@ -55,16 +64,25 @@ namespace BusinessLayer
         /// </summary>
         public Message processMessage(string header, string body)
         {
-            //Create a message
-            Message message = MessageFactory.createMessage(header, body);
+            if(!header.Equals("") || !body.Equals(""))
+            {
+                //Create a message
+                Message message = MessageFactory.createMessage(header, body);
 
-            //Get the correct handler to process the message
-            IHandler handler = MessageFactory.getHandler(message);
+                //Get the correct handler to process the message
+                IHandler handler = MessageFactory.getHandler(message);
 
-            //Process the message
-            handler.processMessage(message, MessageMetrics, Abbreviations);
+                TemporaryMessageMetrics.reset();
 
-            return message;
+                //Process the message
+                handler.processMessage(message, TemporaryMessageMetrics, Abbreviations);
+
+                return message;
+            }
+            else
+            {
+                throw new Exception("Missing text or header");
+            }
         }
 
         /// <summary>
@@ -73,8 +91,17 @@ namespace BusinessLayer
         /// </summary>
         public bool verifyMessage(Message message)
         {
-            ProcessedMessages.Add(message);
-            return true;
+            if(message != null)
+            {
+                MessageMetrics.addMetrics(TemporaryMessageMetrics);
+                ProcessedMessages.Add(message);
+                return true;
+            }
+            else
+            {
+                throw new Exception("Message is empty");
+            }
+            
         }
 
         /// <summary>
@@ -83,8 +110,15 @@ namespace BusinessLayer
         /// </summary>
         public bool saveMessages(string filepath)
         {
-            MessageData.saveData(ProcessedMessages, filepath);
-            return true;
+            if (!filepath.Equals(""))
+            {
+                MessageData.saveData(ProcessedMessages, filepath);
+                return true;
+            }
+            else
+            {
+                throw new Exception("You need to provide a file to save to");
+            }
         }
 
         /// <summary>

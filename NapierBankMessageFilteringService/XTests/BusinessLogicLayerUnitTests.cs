@@ -19,7 +19,7 @@ namespace XTests
             //Set messageId to header
             message.MessageId = "S1234567701";
             //Set messageTExt to body
-            message.MessageText = "+447911123456 The most important LOL to remember is to add the international LTM code. A mobile LYLAS number in the United Kingdom always starts.";
+            message.MessageText = "+447911123456 The most important LOL to remember is to add the international LTM code.";
             MessageMetrics metrics = new MessageMetrics();
 
             //Load test abreviations
@@ -34,10 +34,42 @@ namespace XTests
             handler.processMessage(message, metrics, abbreviations);
 
             string expectedSender = "+447911123456";
-            string expectedText = "The most important LOL<Laughing out loud> to remember is to add the international LTM<Laugh to myself> code. A mobile LYLAS<Love you like a sis> number in the United Kingdom always starts.";
+            string expectedText = "The most important LOL<Laughing out loud> to remember is to add the international LTM<Laugh to myself> code.";
 
             Assert.Equal(expectedSender, message.MessageSender);
             Assert.Equal(expectedText, message.MessageText);
+        }
+
+        [Fact]
+        public void testSMSProcessMessageCorrectOutputMaxText()
+        {
+            //Create new message and message metrics
+            SmsMessage message = new SmsMessage();
+            message.MessageType = MessageType.SMS;
+            //Set messageId to header
+            message.MessageId = "S1234567701";
+            //Set messageTExt to body
+            message.MessageText = "+447911123456 The most important LOL to remember is to add the international LTM code. A mobile LYLAS number in the United Kingdom always starts and this i";
+            MessageMetrics metrics = new MessageMetrics();
+
+            //Load test abreviations
+            List<Abbreviation> abbreviations = new List<Abbreviation>();
+            TestDataFacade df = new TestDataFacade();
+            df.loadAbbreviations(abbreviations);
+
+            //Create new sms handler
+            SmsHandler handler = new SmsHandler();
+
+            try
+            {
+                //Process message
+                handler.processMessage(message, metrics, abbreviations);
+            }
+            catch(Exception ex)
+            {
+                string expectedMessage = "Character limit is 140 characters for sms text";
+                Assert.Equal(expectedMessage, ex.Message);
+            }  
         }
 
         [Fact]
@@ -71,6 +103,39 @@ namespace XTests
            Assert.Equal(expectedSender, message.MessageSender);
            Assert.Equal(expectedSubject, message.MessageSubject);
            Assert.Equal(expectedText, message.MessageText);
+        }
+
+        [Fact]
+        public void testEmailProcessMessageCorrectOutputMaxText()
+        {
+            //Create new message and message metrics
+            EmailMessage message = new EmailMessage();
+            message.MessageType = MessageType.Email;
+            //Set messageId to header
+            message.MessageId = "E1294567704";
+            //Set messageTExt to body
+            message.MessageText = "test@gmail.com The most important B dog http:\\\\www.anywhere.com. Further detail of email messages is provided in 3.1.2 below. fhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfudfhudfhudfhudhfudfhudfhudfhudfhudfhfhudfsasasssss";
+            MessageMetrics metrics = new MessageMetrics();
+
+
+            //Load test abreviations
+            List<Abbreviation> abbreviations = new List<Abbreviation>();
+            TestDataFacade df = new TestDataFacade();
+            df.loadAbbreviations(abbreviations);
+
+            //Create new email handler
+            EmailHandler handler = new EmailHandler();
+
+            try
+            {
+                //Process message
+                handler.processMessage(message, metrics, abbreviations);
+            }
+            catch (Exception ex)
+            {
+                string expectedMessage = "Character limit is 1028 characters for email text";
+                Assert.Equal(expectedMessage, ex.Message);
+            }
         }
 
         [Fact]
@@ -115,7 +180,7 @@ namespace XTests
             //Set messageId to header
             message.MessageId = "T1294567701";
             //Set messageTExt to body
-            message.MessageText = "@Ben The most important LTM to remember is to add the #dog LYLAS<Love you like a sis> code. A mobile LOL number in the United Kingdom always starts.";
+            message.MessageText = "@Ben The most important LTM to remember is to add the #dog LYLAS<Love you like a sis> code. A mobile LOL";
             MessageMetrics metrics = new MessageMetrics();
 
             //Load test abreviations
@@ -130,10 +195,74 @@ namespace XTests
             handler.processMessage(message, metrics, abbreviations);
 
             string expectedSender = "@Ben";
-            string expectedText = "The most important LTM<Laugh to myself> to remember is to add the #dog LYLAS<Love you like a sis> code. A mobile LOL<Laughing out loud> number in the United Kingdom always starts.";
+            string expectedText = "The most important LTM<Laugh to myself> to remember is to add the #dog LYLAS<Love you like a sis> code. A mobile LOL<Laughing out loud>";
 
             Assert.Equal(expectedSender, message.MessageSender);
             Assert.Equal(expectedText, message.MessageText);
+        }
+
+        [Fact]
+        public void testTweetProcessMessageCorrectOutputMaxText()
+        {
+            //Create new message and message metrics
+            SmsMessage message = new SmsMessage();
+            message.MessageType = MessageType.SMS;
+            //Set messageId to header
+            message.MessageId = "T1294567701";
+            //Set messageTExt to body
+            message.MessageText = "@Ben The most important LTM to remember is to add the #dog LYLAS<Love you like a sis> code. A mobile LOL number in the United Kingdom always starts.";
+            MessageMetrics metrics = new MessageMetrics();
+
+            //Load test abreviations
+            List<Abbreviation> abbreviations = new List<Abbreviation>();
+            TestDataFacade df = new TestDataFacade();
+            df.loadAbbreviations(abbreviations);
+
+            //Create new tweet handler
+            TweetHandler handler = new TweetHandler();
+
+            try
+            {
+                //Process message
+                handler.processMessage(message, metrics, abbreviations);
+            }
+            catch (Exception ex)
+            {
+                string expectedMessage = "Character limit is 140 characters for tweet text";
+                Assert.Equal(expectedMessage, ex.Message);
+            }
+        }
+
+        [Fact]
+        public void testTweetProcessMessageCorrectOutputMaxTextUsername()
+        {
+            //Create new message and message metrics
+            SmsMessage message = new SmsMessage();
+            message.MessageType = MessageType.SMS;
+            //Set messageId to header
+            message.MessageId = "T1294567701";
+            //Set messageTExt to body
+            message.MessageText = "@thisisatestuser3 The most important LTM to remember is to add the #dog LYLAS<Love you like a sis> code. A mobile LOL number in the United Kingdom always starts.";
+            MessageMetrics metrics = new MessageMetrics();
+
+            //Load test abreviations
+            List<Abbreviation> abbreviations = new List<Abbreviation>();
+            TestDataFacade df = new TestDataFacade();
+            df.loadAbbreviations(abbreviations);
+
+            //Create new tweet handler
+            TweetHandler handler = new TweetHandler();
+
+            try
+            {
+                //Process message
+                handler.processMessage(message, metrics, abbreviations);
+            }
+            catch (Exception ex)
+            {
+                string expectedMessage = "Character limit is 140 characters for tweet username";
+                Assert.Equal(expectedMessage, ex.Message);
+            }
         }
 
         [Fact]
