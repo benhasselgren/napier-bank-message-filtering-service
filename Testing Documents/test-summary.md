@@ -1,6 +1,6 @@
 # Test Summary
 
-## Unit Tests
+## Unit Tests Results
 
 ### Data System Layer
 Test Case ID|Test Scenario|Test Steps|Test Data|Expected Results|Actual Results|Pass
@@ -44,7 +44,7 @@ UTB23|Check getHandler() returns a tweet handler|1. Create a tweet message<br>2.
 ### Presentation System Layer (GUI)
 > No unit tests needed for this layer as methods used are more suited for integration testing. This is down to the design of the 3 layer model application.
 
-## Integration Tests
+## Integration Tests Results
 
 ### Data System Layer
 > No integration tests needed for this layer as methods in this layer are integrated in the layer above.
@@ -65,3 +65,11 @@ ITB10|Check verifyMessage() with null message|1. Call verifyMessage()|null|Excep
 
 ### Presentation System Layer (GUI)
 > Integration tests not a priority for this project.
+
+## Analysis 
+
+Overall around 93% of the data and business layer methods have been tested. This value comes from the code coverage reports that are generated when the application is built and integrated on travis. A badge shows this value in the README file. 
+
+The reason only 93% of the methods have been tested is because there was some issues identified with the application while testing. These issues were solved and involved a couple methods being added to the business layer. These new methods have not been tested yet but will be in the next iteration.
+
+However, the testing has shown the application works the way it should with one exception. (Messages read in from a file are not displayed one by one but instead all processed and then saved at once.) Apart from this small exception, the application passed all the tests and is very robust.
