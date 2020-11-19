@@ -25,7 +25,7 @@
    - These tasks will include different types of maintenance and evolutions that will be applied the system. For example, a new archieture to replace a current architecture in a sub system which supports an increased degree of maintainability and interoperability for the system.
    - Tasks will be prioritised and assigned to different team members.
 3. Tasks are executed by the development team .
-   - Daily standups will occur to track progress
+   - Daily standups will occur to track progress.
    - **Re-engineering** will occur after tasks to ensure the modified/added software is easier to understand and change.
 4. The process is repeated. until the evolution cycles are complete.
 
