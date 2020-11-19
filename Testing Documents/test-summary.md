@@ -66,7 +66,7 @@ ITB10|Check verifyMessage() with null message|1. Call verifyMessage()|null|Excep
 ### Presentation System Layer (GUI)
 > Integration tests not a priority for this project.
 
-## Analysis 
+## Analysis 
 
 Overall around 93% of the data and business layer methods have been tested. This value comes from the code coverage reports that are generated when the application is built and integrated on travis. A badge shows this value in the README file. 
 
