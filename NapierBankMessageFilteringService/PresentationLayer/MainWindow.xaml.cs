@@ -4,6 +4,7 @@ using System;
 using System.Windows;
 using System.IO;
 using System.Windows.Shapes;
+using System.Linq;
 
 namespace PresentationLayer
 {
@@ -25,7 +26,8 @@ namespace PresentationLayer
             InitializeComponent();
             listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
             sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
-            trendingList.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
+            var hashtags = ((bankMessages.getMessageMetrics()).getHashtags()).OrderByDescending(x => x.Count).ToList();
+            trendingList.ItemsSource = hashtags;
         }
 
         private void add_messages_Click(object sender, RoutedEventArgs e)
@@ -73,7 +75,8 @@ namespace PresentationLayer
                 //Output metrics to window
                 listOfMentions.ItemsSource = bankMessages.getMessageMetrics().getMentions();
                 sirList.ItemsSource = bankMessages.getMessageMetrics().getSirs();
-                trendingList.ItemsSource = bankMessages.getMessageMetrics().getHashtags();
+                var hashtags = ((bankMessages.getMessageMetrics()).getHashtags()).OrderByDescending(x => x.Count).ToList();
+                trendingList.ItemsSource = hashtags;
 
                 //Update tabs content by switching tabs then switching back
                 tabListControl.SelectedIndex = 1;

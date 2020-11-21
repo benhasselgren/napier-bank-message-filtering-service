@@ -41,6 +41,7 @@ namespace BusinessLayer
         /// </summary>
         public bool processMessagesByFile(string file)
         {
+            MessageMetrics.reset();
             if (!file.Equals(""))
             {
                 List<string> data = MessageData.loadData(file);

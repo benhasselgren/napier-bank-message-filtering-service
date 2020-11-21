@@ -6,3 +6,4 @@ C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\Models\obj\Debug\netstandard2.0\Models.csproj.CoreCompileInputs.cache
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\Models\obj\Debug\netstandard2.0\Models.dll
 C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\Models\obj\Debug\netstandard2.0\Models.pdb
+C:\Users\Ben Hasselgren\source\repos\benhasselgren\napier-bank-message-filtering-service\NapierBankMessageFilteringService\Models\obj\Debug\netstandard2.0\Models.csprojAssemblyReference.cache

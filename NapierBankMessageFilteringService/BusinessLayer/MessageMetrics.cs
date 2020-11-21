@@ -27,7 +27,6 @@ namespace BusinessLayer
             Sirs = new List<Sir>(); ;
         }
 
-
         // ------------------ Methods ------------------
         /// <summary>
         /// Method <c>addHashtag</c> 
@@ -125,8 +124,6 @@ namespace BusinessLayer
         /// </summary>
         public IList<Hashtag> getHashtags()
         {
-            //Sort the list by descending order
-            Hashtags.OrderByDescending(x => x.Count);
             return Hashtags;
         }
 

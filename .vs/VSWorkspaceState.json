@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\NapierBankMessageFilteringService",
-    "\\NapierBankMessageFilteringService\\.vs\\NapierBankMessageFilteringService",
-    "\\NapierBankMessageFilteringService\\BusinessLayer\\obj\\Release",
-    "\\NapierBankMessageFilteringService\\packages"
+    "\\NapierBankMessageFilteringService\\packages",
+    "\\Report"
   ],
-  "SelectedNode": "\\NapierBankMessageFilteringService\\XTests",
   "PreviewInSolutionExplorer": false
 }
