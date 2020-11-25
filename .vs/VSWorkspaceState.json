@@ -2,8 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\NapierBankMessageFilteringService",
-    "\\NapierBankMessageFilteringService\\packages",
-    "\\Report"
+    "\\NapierBankMessageFilteringService\\PresentationLayer"
   ],
   "PreviewInSolutionExplorer": false
 }

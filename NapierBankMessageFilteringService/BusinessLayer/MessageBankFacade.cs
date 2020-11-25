@@ -65,7 +65,7 @@ namespace BusinessLayer
         /// </summary>
         public Message processMessage(string header, string body)
         {
-            if(!header.Equals("") || !body.Equals(""))
+            if (!header.Equals("") || !body.Equals(""))
             {
                 //Create a message
                 Message message = MessageFactory.createMessage(header, body);
